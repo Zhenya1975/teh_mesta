@@ -84,12 +84,33 @@ app.layout = dbc.Container(
 
     [
         Input('checklist_level_1', 'value'),
+        Input('select_all_level_1', 'n_clicks'),
+        Input('release_all_level_1', 'n_clicks'),
     ],
 )
-def meeting_plan_fact(checklist_level_1):
+def meeting_plan_fact(checklist_level_1, select_all_level_1, release_all_level_1):
+    changed_id = [p['prop_id'] for p in callback_context.triggered][0]
+    checklist_level_1_values = []
+
     level_1_df = pd.read_csv('data/level_1_selected_items.csv', dtype=str)
+    # Список чек-боксов Level_1
     checklist_level_1_options = functions.level_1_checklist_data(level_1_df)[0]
-    checklist_level_1_values = functions.level_1_checklist_data(level_1_df)[1]
+    # Полный список значений списка level_1
+    checklist_level_1_full_values = functions.level_1_checklist_data(level_1_df)[1]
+
+    if checklist_level_1:
+        checklist_level_1_values = checklist_level_1
+
+
+    # Обработчик кнопок "Снять / Выбрать" в блоке Регионы
+    id_select_all_level_1_button = "select_all_level_1"
+    id_release_all_level_1_button = "release_all_level_1"
+    # при клике на кнопку Выбрать все - выбираем все и наоборот
+    print(changed_id)
+    if id_select_all_level_1_button in changed_id:
+        checklist_level_1_values = checklist_level_1_full_values
+    elif id_release_all_level_1_button in changed_id:
+        checklist_level_1_values = []
 
     return checklist_level_1_values, checklist_level_1_options
 

@@ -86,6 +86,7 @@ app.layout = dbc.Container(
     Output("checklist_level_2", "options"),
     Output("checklist_level_3", "value"),
     Output("checklist_level_3", "options"),
+    Output('code_table', 'children'),
 
 ],
 
@@ -179,8 +180,22 @@ def meeting_plan_fact(checklist_level_1, select_all_level_1, release_all_level_1
 
     result_df = teh_mesta_full_list[teh_mesta_full_list['code'].str.contains(x)]
     result_df.to_csv('data/result_df.csv')
+    code_table = dash_table.DataTable(
+        # id='table',
+        columns=[{"name": 'Код', "id": 'Наименование'}],
+        data=result_df['Техническое место', 'Название технического места'].to_dict('records'),
+        style_header={
+            # 'backgroundColor': 'white',
+            'fontWeight': 'bold'
+        },
+        style_data={
+            'whiteSpace': 'normal',
+            'height': 'auto',
+        },
+        style_cell={'textAlign': 'left'},
+    )
 
-    return checklist_level_1_values, checklist_level_1_options, checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options
+    return checklist_level_1_values, checklist_level_1_options, checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, code_table
 
 
 

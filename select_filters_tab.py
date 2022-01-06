@@ -90,10 +90,17 @@ def select_filters_tab():
                                          labelStyle=dict(display='block')),
                                      # html.Hr(className="hr"),
 
-                                     html.P(),
+
                                  ])
                     ]
                 )
+            ]),
+            dbc.Row([
+                dbc.Col(
+                    children=[
+                        html.P(),
+                        html.Div(id='code_table'),
+                    ])
             ])
         ]
     )

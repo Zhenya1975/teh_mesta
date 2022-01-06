@@ -180,10 +180,21 @@ def meeting_plan_fact(checklist_level_1, select_all_level_1, release_all_level_1
 
     result_df = teh_mesta_full_list[teh_mesta_full_list['code'].str.contains(x)]
     result_df.to_csv('data/result_df.csv')
+    table_list = []
+    for index,row in result_df.iterrows():
+        temp_dict = {}
+        temp_dict['Код технического места'] = row['Техническое место']
+        temp_dict['Наименование технического места'] = row['Название технического места']
+        table_list.append(temp_dict)
+    table_df = pd.DataFrame(table_list)
+
+    # print(table_df)
+
     code_table = dash_table.DataTable(
         # id='table',
-        columns=[{"name": 'Код', "id": 'Наименование'}],
-        data=result_df['Техническое место', 'Название технического места'].to_dict('records'),
+        columns=[{"name": i, "id": i} for i in table_df.columns],
+        data=table_df.to_dict('records'),
+
         style_header={
             # 'backgroundColor': 'white',
             'fontWeight': 'bold'

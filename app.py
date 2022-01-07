@@ -17,8 +17,9 @@ template_theme2 = "darkly"
 url_theme1 = dbc.themes.FLATLY
 url_theme2 = dbc.themes.DARKLY
 
-teh_mesta_full_list = pd.read_csv('data/teh_masta_full_list.csv', dtype=str)
-teh_mesta_full_list['code'] = "first" + teh_mesta_full_list['Техническое место']
+teh_mesta_full_list = pd.read_csv('data/origin_codes_df.csv', dtype=str)
+teh_mesta_full_list.fillna('no_data', inplace=True)
+
 
 templates = [
     "bootstrap",
@@ -87,6 +88,7 @@ app.layout = dbc.Container(
     Output("checklist_level_3", "value"),
     Output("checklist_level_3", "options"),
     Output('code_table', 'children'),
+    Output('number_of_rows_text', 'children'),
 
 ],
 
@@ -102,92 +104,73 @@ app.layout = dbc.Container(
         Input('release_all_level_3', 'n_clicks'),
     ],
 )
-def meeting_plan_fact(checklist_level_1, select_all_level_1, release_all_level_1, checklist_level_2, select_all_level_2, release_all_level_2, checklist_level_3, select_all_level_3, release_all_level_3):
+def meeting_plan_fact(
+        checklist_level_1,
+        select_all_level_1,
+        release_all_level_1,
+        checklist_level_2,
+        select_all_level_2,
+        release_all_level_2,
+        checklist_level_3,
+        select_all_level_3,
+        release_all_level_3
+):
     changed_id = [p['prop_id'] for p in callback_context.triggered][0]
 
-    ########### УРОВЕНЬ 1 #################
-    checklist_level_1_values = []
+    # по умолчанию result_df - это полный список всех техмест
+    result_df = teh_mesta_full_list
+    # фильтра должны быть пустыми. Принцип такой. Пустой фильтр - это не примененный фильтр. То есть
+    # отдаются все данные, которые есть без фильтрации.
     level_1_df = pd.read_csv('data/level_1_selected_items.csv', dtype=str)
+
     # Список чек-боксов Level_1
     checklist_level_1_options = functions.level_checklist_data(level_1_df)[0]
-    # Полный список значений списка level_1
-    checklist_level_1_full_values = functions.level_checklist_data(level_1_df)[1]
+    # на начальном экране фильтра пустые
+    checklist_level_1_values = []
 
-    if checklist_level_1:
+    # Список чек-боксов Level_2
+    level_2_df = pd.read_csv('data/level_2_selected_items.csv', dtype=str)
+    checklist_level_2_options = functions.level_checklist_data(level_2_df)[0]
+    # на начальном экране фильтра пустые
+    checklist_level_2_values = []
+
+    # Список чек-боксов Level_3
+    level_3_df = pd.read_csv('data/level_3_selected_items.csv', dtype=str)
+    checklist_level_3_options = functions.level_checklist_data(level_3_df)[0]
+    # на начальном экране фильтра пустые
+    checklist_level_3_values = []
+
+    #  теперь надо проверять. Если список чек-боксов не None и его длина не равна нулю, то
+    # то надо включать фильтр по выбранному чек-боксу. В таблицу
+    # print('checklist_level_1: ', checklist_level_1)
+    if checklist_level_1 and len(checklist_level_1)>0:
+        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1)]
         checklist_level_1_values = checklist_level_1
 
-
-    # Обработчик кнопок "Снять / Выбрать" в блоке Регионы
-    id_select_all_level_1_button = "select_all_level_1"
-    id_release_all_level_1_button = "release_all_level_1"
-    # при клике на кнопку Выбрать все - выбираем все и наоборот
-
-    if id_select_all_level_1_button in changed_id:
-        checklist_level_1_values = checklist_level_1_full_values
-    elif id_release_all_level_1_button in changed_id:
-        checklist_level_1_values = []
-
-    ########### УРОВЕНЬ 2 #################
-    checklist_level_2_values = []
-    level_2_df = pd.read_csv('data/level_2_selected_items.csv', dtype=str)
-    # Список чек-боксов Level_2
-    checklist_level_2_options = functions.level_checklist_data(level_2_df)[0]
-    # Полный список значений списка level_2
-    checklist_level_2_full_values = functions.level_checklist_data(level_2_df)[1]
-
-    if checklist_level_2:
+    if checklist_level_2 and len(checklist_level_2)>0:
+        result_df = result_df.loc[result_df['level_2'].isin(checklist_level_2)]
         checklist_level_2_values = checklist_level_2
 
-
-    # Обработчик кнопок "Снять / Выбрать" в блоке Регионы
-    id_select_all_level_2_button = "select_all_level_2"
-    id_release_all_level_2_button = "release_all_level_2"
-    # при клике на кнопку Выбрать все - выбираем все и наоборот
-
-    if id_select_all_level_2_button in changed_id:
-        checklist_level_2_values = checklist_level_2_full_values
-    elif id_release_all_level_2_button in changed_id:
-        checklist_level_2_values = []
-
-    ########### УРОВЕНЬ 3 #################
-    checklist_level_3_values = []
-    level_3_df = pd.read_csv('data/level_3_selected_items.csv', dtype=str)
-    # Список чек-боксов Level_3
-    checklist_level_3_options = functions.level_checklist_data(level_3_df)[0]
-    # Полный список значений списка level_2
-    checklist_level_3_full_values = functions.level_checklist_data(level_3_df)[1]
-
-    if checklist_level_3:
+    if checklist_level_3 and len(checklist_level_3)>0:
+        result_df = result_df.loc[result_df['level_3'].isin(checklist_level_3)]
         checklist_level_3_values = checklist_level_3
 
-    # Обработчик кнопок "Снять / Выбрать"
-    id_select_all_level_3_button = "select_all_level_3"
-    id_release_all_level_3_button = "release_all_level_3"
-    # при клике на кнопку Выбрать все - выбираем все и наоборот
 
-    if id_select_all_level_3_button in changed_id:
-        checklist_level_3_values = checklist_level_3_full_values
-    elif id_release_all_level_3_button in changed_id:
-        checklist_level_3_values = []
-
-
-    base = r'{}'
-    expr = '(?=.*{})'
-    words = checklist_level_1_values + checklist_level_2_values+checklist_level_3_values
-    print('words:',words)
-    x = base.format(''.join(expr.format(w) for w in words))
-    print(x)
-
-    result_df = teh_mesta_full_list[teh_mesta_full_list['code'].str.contains(x)]
     result_df.to_csv('data/result_df.csv')
+
+
     table_list = []
+
     for index,row in result_df.iterrows():
         temp_dict = {}
-        temp_dict['Код технического места'] = row['Техническое место']
+        teh_mesto_code = row['Техническое место']
+
+        temp_dict['Код технического места'] = teh_mesto_code
         temp_dict['Наименование технического места'] = row['Название технического места']
         table_list.append(temp_dict)
     table_df = pd.DataFrame(table_list)
-
+    number_of_rows = len(table_df)
+    number_of_rows_text = 'Количество записей: {}'.format(number_of_rows)
     # print(table_df)
 
     code_table = dash_table.DataTable(
@@ -206,10 +189,7 @@ def meeting_plan_fact(checklist_level_1, select_all_level_1, release_all_level_1
         style_cell={'textAlign': 'left'},
     )
 
-    return checklist_level_1_values, checklist_level_1_options, checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, code_table
-
-
-
+    return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, code_table, number_of_rows_text
 
 
 if __name__ == "__main__":

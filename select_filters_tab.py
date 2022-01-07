@@ -98,7 +98,7 @@ def select_filters_tab():
             dbc.Row([
                 dbc.Col(
                     children=[
-                        html.P(),
+                        html.P(id='number_of_rows_text'),
                         html.Div(id='code_table'),
                     ])
             ])

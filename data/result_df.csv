@@ -1,71 +1,120 @@
 ,Unnamed: 0,Техническое место,Название технического места,Вышестоящее ТехМесто,code,level_1,level_2,level_3,level_4,level_5,level_6,level_7,level_8
-22150,22150,11-RUD-BLAG-UGBL,Участок горный к.Благодатный,11-RUD-BLAG,first11-RUD-BLAG-UGBL,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22151,22151,11-RUD-BLAG-UGBL-E101,Экскаватор электрический №22,11-RUD-BLAG-UGBL-EG10,first11-RUD-BLAG-UGBL-E101,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22152,22152,11-RUD-BLAG-UGBL-E101-0001,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-E101,first11-RUD-BLAG-UGBL-E101-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22153,22153,11-RUD-BLAG-UGBL-E101-0002,Ходовая часть(лев),11-RUD-BLAG-UGBL-E101,first11-RUD-BLAG-UGBL-E101-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22154,22154,11-RUD-BLAG-UGBL-E101-0003,Электрооборудование,11-RUD-BLAG-UGBL-E101,first11-RUD-BLAG-UGBL-E101-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22155,22155,11-RUD-BLAG-UGBL-E102,Экскаватор электрический №28,11-RUD-BLAG-UGBL-EG10,first11-RUD-BLAG-UGBL-E102,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22156,22156,11-RUD-BLAG-UGBL-E102-0001,Ходовая часть(лев),11-RUD-BLAG-UGBL-E102,first11-RUD-BLAG-UGBL-E102-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22157,22157,11-RUD-BLAG-UGBL-E102-0002,Электрооборудование,11-RUD-BLAG-UGBL-E102,first11-RUD-BLAG-UGBL-E102-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22158,22158,11-RUD-BLAG-UGBL-E102-0003,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-E102,first11-RUD-BLAG-UGBL-E102-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22159,22159,11-RUD-BLAG-UGBL-E103,Экскаватор электрический №32,11-RUD-BLAG-UGBL-EG10,first11-RUD-BLAG-UGBL-E103,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22160,22160,11-RUD-BLAG-UGBL-E103-0001,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-E103,first11-RUD-BLAG-UGBL-E103-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22161,22161,11-RUD-BLAG-UGBL-E103-0002,Электрооборудование,11-RUD-BLAG-UGBL-E103,first11-RUD-BLAG-UGBL-E103-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22162,22162,11-RUD-BLAG-UGBL-E103-0003,Ходовая часть(лев),11-RUD-BLAG-UGBL-E103,first11-RUD-BLAG-UGBL-E103-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22163,22163,11-RUD-BLAG-UGBL-E104,Экскаватор электрический №33,11-999-1105,first11-RUD-BLAG-UGBL-E104,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22164,22164,11-RUD-BLAG-UGBL-E104-0001,Электрооборудование,11-RUD-BLAG-UGBL-E104,first11-RUD-BLAG-UGBL-E104-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22165,22165,11-RUD-BLAG-UGBL-E104-0002,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-E104,first11-RUD-BLAG-UGBL-E104-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22166,22166,11-RUD-BLAG-UGBL-E104-0003,Ходовая часть(лев),11-RUD-BLAG-UGBL-E104,first11-RUD-BLAG-UGBL-E104-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22167,22167,11-RUD-BLAG-UGBL-E105,Экскаватор электрический №02,11-RUD-BLAG-UGBL-EG10,first11-RUD-BLAG-UGBL-E105,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22168,22168,11-RUD-BLAG-UGBL-E105-0001,Ходовая часть(лев),11-RUD-BLAG-UGBL-E105,first11-RUD-BLAG-UGBL-E105-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22169,22169,11-RUD-BLAG-UGBL-E105-0002,Электрооборудование,11-RUD-BLAG-UGBL-E105,first11-RUD-BLAG-UGBL-E105-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22170,22170,11-RUD-BLAG-UGBL-E105-0003,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-E105,first11-RUD-BLAG-UGBL-E105-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22171,22171,11-RUD-BLAG-UGBL-E106,Экскаватор электрический №30,11-RUD-BLAG-UGBL-EG10,first11-RUD-BLAG-UGBL-E106,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22172,22172,11-RUD-BLAG-UGBL-E801,Экскаватор электрический №01,11-RUD-BLAG-UGBL-EG18,first11-RUD-BLAG-UGBL-E801,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22173,22173,11-RUD-BLAG-UGBL-E801-0001,Напорный механизм,11-RUD-BLAG-UGBL-E801,first11-RUD-BLAG-UGBL-E801-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22174,22174,11-RUD-BLAG-UGBL-E801-0002,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-E801,first11-RUD-BLAG-UGBL-E801-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22175,22175,11-RUD-BLAG-UGBL-E801-0003,Ходовая часть(прав),11-RUD-BLAG-UGBL-E801,first11-RUD-BLAG-UGBL-E801-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22176,22176,11-RUD-BLAG-UGBL-E801-0004,Ходовая часть(лев),11-RUD-BLAG-UGBL-E801,first11-RUD-BLAG-UGBL-E801-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22177,22177,11-RUD-BLAG-UGBL-EG10,Экскаваторы ЭКГ-10,11-RUD-BLAG-UGBL,first11-RUD-BLAG-UGBL-EG10,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22178,22178,11-RUD-BLAG-UGBL-EG18,Экскаваторы ЭКГ-18,11-RUD-BLAG-UGBL,first11-RUD-BLAG-UGBL-EG18,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22179,22179,11-RUD-BLAG-UGBL-P601,Экскаватор гидравлический №502,11-RUD-BLAG-UGBL-PC36,first11-RUD-BLAG-UGBL-P601,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22180,22180,11-RUD-BLAG-UGBL-P601-0001,ДВС,11-RUD-BLAG-UGBL-P601,first11-RUD-BLAG-UGBL-P601-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22181,22181,11-RUD-BLAG-UGBL-P601-0002,Рабочее оборудование,11-RUD-BLAG-UGBL-P601,first11-RUD-BLAG-UGBL-P601-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22182,22182,11-RUD-BLAG-UGBL-P601-0003,Ходовая часть(прав),11-RUD-BLAG-UGBL-P601,first11-RUD-BLAG-UGBL-P601-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22183,22183,11-RUD-BLAG-UGBL-P601-0004,Гидравлическая система,11-RUD-BLAG-UGBL-P601,first11-RUD-BLAG-UGBL-P601-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22184,22184,11-RUD-BLAG-UGBL-P602,Экскаватор гидравлический №504,11-RUD-BLAG-UGBL-PC36,first11-RUD-BLAG-UGBL-P602,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22185,22185,11-RUD-BLAG-UGBL-P602-0001,ДВС,11-RUD-BLAG-UGBL-P602,first11-RUD-BLAG-UGBL-P602-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22186,22186,11-RUD-BLAG-UGBL-P602-0002,Рабочее оборудование,11-RUD-BLAG-UGBL-P602,first11-RUD-BLAG-UGBL-P602-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22187,22187,11-RUD-BLAG-UGBL-P602-0003,Ходовая часть(прав),11-RUD-BLAG-UGBL-P602,first11-RUD-BLAG-UGBL-P602-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22188,22188,11-RUD-BLAG-UGBL-P602-0004,Гидравлическая система,11-RUD-BLAG-UGBL-P602,first11-RUD-BLAG-UGBL-P602-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22189,22189,11-RUD-BLAG-UGBL-P701,Экскаватор гидравлический №01,11-RUD-BLAG-UGBL-PC17,first11-RUD-BLAG-UGBL-P701,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22190,22190,11-RUD-BLAG-UGBL-P701-0001,ДВС,11-RUD-BLAG-UGBL-P701,first11-RUD-BLAG-UGBL-P701-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22191,22191,11-RUD-BLAG-UGBL-P701-0002,Рабочее оборудование,11-RUD-BLAG-UGBL-P701,first11-RUD-BLAG-UGBL-P701-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22192,22192,11-RUD-BLAG-UGBL-P701-0003,Ходовая часть(прав),11-RUD-BLAG-UGBL-P701,first11-RUD-BLAG-UGBL-P701-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22193,22193,11-RUD-BLAG-UGBL-P701-0004,Гидравлическая система,11-RUD-BLAG-UGBL-P701,first11-RUD-BLAG-UGBL-P701-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22194,22194,11-RUD-BLAG-UGBL-P801,Экскаватор гидравлический №07,11-RUD-BLAG-UGBL-PC18,first11-RUD-BLAG-UGBL-P801,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22195,22195,11-RUD-BLAG-UGBL-P801-0001,ДВС,11-RUD-BLAG-UGBL-P801,first11-RUD-BLAG-UGBL-P801-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22196,22196,11-RUD-BLAG-UGBL-P801-0002,Рабочее оборудование,11-RUD-BLAG-UGBL-P801,first11-RUD-BLAG-UGBL-P801-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22197,22197,11-RUD-BLAG-UGBL-P801-0003,Ходовая часть(прав),11-RUD-BLAG-UGBL-P801,first11-RUD-BLAG-UGBL-P801-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22198,22198,11-RUD-BLAG-UGBL-P801-0004,Гидравлическая система,11-RUD-BLAG-UGBL-P801,first11-RUD-BLAG-UGBL-P801-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22199,22199,11-RUD-BLAG-UGBL-P802,Экскаватор гидравлический №08,11-RUD-BLAG-UGBL-PC18,first11-RUD-BLAG-UGBL-P802,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22200,22200,11-RUD-BLAG-UGBL-P802-0001,ДВС,11-RUD-BLAG-UGBL-P802,first11-RUD-BLAG-UGBL-P802-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22201,22201,11-RUD-BLAG-UGBL-P802-0002,Рабочее оборудование,11-RUD-BLAG-UGBL-P802,first11-RUD-BLAG-UGBL-P802-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22202,22202,11-RUD-BLAG-UGBL-P802-0003,Ходовая часть(прав),11-RUD-BLAG-UGBL-P802,first11-RUD-BLAG-UGBL-P802-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22203,22203,11-RUD-BLAG-UGBL-P802-0004,Гидравлическая система,11-RUD-BLAG-UGBL-P802,first11-RUD-BLAG-UGBL-P802-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22204,22204,11-RUD-BLAG-UGBL-PC17,Экскаваторы PC1250-7,11-RUD-BLAG-UGBL,first11-RUD-BLAG-UGBL-PC17,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22205,22205,11-RUD-BLAG-UGBL-PC18,Экскаваторы PC1250-8,11-RUD-BLAG-UGBL,first11-RUD-BLAG-UGBL-PC18,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22206,22206,11-RUD-BLAG-UGBL-PC36,Экскаваторы PC3000-6,11-RUD-BLAG-UGBL,first11-RUD-BLAG-UGBL-PC36,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22207,22207,11-RUD-BLAG-UGBL-W201,Экскаватор электрический №03,11-RUD-BLAG-UGBL-WK20,first11-RUD-BLAG-UGBL-W201,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22208,22208,11-RUD-BLAG-UGBL-W201-0001,Ходовая часть(лев),11-RUD-BLAG-UGBL-W201,first11-RUD-BLAG-UGBL-W201-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22209,22209,11-RUD-BLAG-UGBL-W201-0002,Ходовая часть(прав),11-RUD-BLAG-UGBL-W201,first11-RUD-BLAG-UGBL-W201-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22210,22210,11-RUD-BLAG-UGBL-W201-0003,Шкаф управления,11-RUD-BLAG-UGBL-W201,first11-RUD-BLAG-UGBL-W201-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22211,22211,11-RUD-BLAG-UGBL-W201-0004,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-W201,first11-RUD-BLAG-UGBL-W201-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22212,22212,11-RUD-BLAG-UGBL-W201-0005,Напорный механизм,11-RUD-BLAG-UGBL-W201,first11-RUD-BLAG-UGBL-W201-0005,first11,RUD,BLAG,UGBL,0005,no_data,no_data,no_data
-22213,22213,11-RUD-BLAG-UGBL-W202,Экскаватор электрический №8,11-RUD-BLAG-UGBL-WK20,first11-RUD-BLAG-UGBL-W202,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
-22214,22214,11-RUD-BLAG-UGBL-W202-0001,Ходовая часть(лев),11-RUD-BLAG-UGBL-W202,first11-RUD-BLAG-UGBL-W202-0001,first11,RUD,BLAG,UGBL,0001,no_data,no_data,no_data
-22215,22215,11-RUD-BLAG-UGBL-W202-0002,Ходовая часть(прав),11-RUD-BLAG-UGBL-W202,first11-RUD-BLAG-UGBL-W202-0002,first11,RUD,BLAG,UGBL,0002,no_data,no_data,no_data
-22216,22216,11-RUD-BLAG-UGBL-W202-0003,Шкаф управления,11-RUD-BLAG-UGBL-W202,first11-RUD-BLAG-UGBL-W202-0003,first11,RUD,BLAG,UGBL,0003,no_data,no_data,no_data
-22217,22217,11-RUD-BLAG-UGBL-W202-0004,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-W202,first11-RUD-BLAG-UGBL-W202-0004,first11,RUD,BLAG,UGBL,0004,no_data,no_data,no_data
-22218,22218,11-RUD-BLAG-UGBL-W202-0005,Напорный механизм,11-RUD-BLAG-UGBL-W202,first11-RUD-BLAG-UGBL-W202-0005,first11,RUD,BLAG,UGBL,0005,no_data,no_data,no_data
-22219,22219,11-RUD-BLAG-UGBL-WK20,Экскаваторы WK-20,11-RUD-BLAG-UGBL,first11-RUD-BLAG-UGBL-WK20,first11,RUD,BLAG,UGBL,no_data,no_data,no_data,no_data
+25456,25456,11-RUD-VOST-UGVS,Участок горный к.Восточный,11-RUD-VOST,first11-RUD-VOST-UGVS,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25457,25457,11-RUD-VOST-UGVS-E102,Экскаватор электрический №08,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E102,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25458,25458,11-RUD-VOST-UGVS-E102-0001,Электрооборудование,11-RUD-VOST-UGVS-E102,first11-RUD-VOST-UGVS-E102-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25459,25459,11-RUD-VOST-UGVS-E102-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E102,first11-RUD-VOST-UGVS-E102-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25460,25460,11-RUD-VOST-UGVS-E102-0003,Ходовая часть(лев),11-RUD-VOST-UGVS-E102,first11-RUD-VOST-UGVS-E102-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25461,25461,11-RUD-VOST-UGVS-E103,Экскаватор электрический №09,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E103,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25462,25462,11-RUD-VOST-UGVS-E103-0001,Ходовая часть(лев),11-RUD-VOST-UGVS-E103,first11-RUD-VOST-UGVS-E103-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25463,25463,11-RUD-VOST-UGVS-E103-0002,Электрооборудование,11-RUD-VOST-UGVS-E103,first11-RUD-VOST-UGVS-E103-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25464,25464,11-RUD-VOST-UGVS-E103-0003,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E103,first11-RUD-VOST-UGVS-E103-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25465,25465,11-RUD-VOST-UGVS-E104,Экскаватор электрический №10,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E104,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25466,25466,11-RUD-VOST-UGVS-E104-0001,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E104,first11-RUD-VOST-UGVS-E104-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25467,25467,11-RUD-VOST-UGVS-E104-0002,Электрооборудование,11-RUD-VOST-UGVS-E104,first11-RUD-VOST-UGVS-E104-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25468,25468,11-RUD-VOST-UGVS-E104-0003,Ходовая часть(лев),11-RUD-VOST-UGVS-E104,first11-RUD-VOST-UGVS-E104-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25469,25469,11-RUD-VOST-UGVS-E105,Экскаватор электрический №17,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E105,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25470,25470,11-RUD-VOST-UGVS-E105-0001,Ходовая часть(лев),11-RUD-VOST-UGVS-E105,first11-RUD-VOST-UGVS-E105-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25471,25471,11-RUD-VOST-UGVS-E105-0002,Электрооборудование,11-RUD-VOST-UGVS-E105,first11-RUD-VOST-UGVS-E105-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25472,25472,11-RUD-VOST-UGVS-E105-0003,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E105,first11-RUD-VOST-UGVS-E105-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25473,25473,11-RUD-VOST-UGVS-E106,Экскаватор электрический №18,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E106,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25474,25474,11-RUD-VOST-UGVS-E106-0001,Ходовая часть(лев),11-RUD-VOST-UGVS-E106,first11-RUD-VOST-UGVS-E106-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25475,25475,11-RUD-VOST-UGVS-E106-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E106,first11-RUD-VOST-UGVS-E106-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25476,25476,11-RUD-VOST-UGVS-E106-0003,Электрооборудование,11-RUD-VOST-UGVS-E106,first11-RUD-VOST-UGVS-E106-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25477,25477,11-RUD-VOST-UGVS-E107,Экскаватор электрический №19,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E107,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25478,25478,11-RUD-VOST-UGVS-E107-0001,Ходовая часть(лев),11-RUD-VOST-UGVS-E107,first11-RUD-VOST-UGVS-E107-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25479,25479,11-RUD-VOST-UGVS-E107-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E107,first11-RUD-VOST-UGVS-E107-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25480,25480,11-RUD-VOST-UGVS-E107-0003,Электрооборудование,11-RUD-VOST-UGVS-E107,first11-RUD-VOST-UGVS-E107-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25481,25481,11-RUD-VOST-UGVS-E108,Экскаватор электрический №21,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E108,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25482,25482,11-RUD-VOST-UGVS-E108-0001,Ходовая часть(лев),11-RUD-VOST-UGVS-E108,first11-RUD-VOST-UGVS-E108-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25483,25483,11-RUD-VOST-UGVS-E108-0002,Электрооборудование,11-RUD-VOST-UGVS-E108,first11-RUD-VOST-UGVS-E108-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25484,25484,11-RUD-VOST-UGVS-E108-0003,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E108,first11-RUD-VOST-UGVS-E108-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25485,25485,11-RUD-VOST-UGVS-E109,Экскаватор электрический №24,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E109,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25486,25486,11-RUD-VOST-UGVS-E109-0001,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E109,first11-RUD-VOST-UGVS-E109-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25487,25487,11-RUD-VOST-UGVS-E109-0002,Ходовая часть(лев),11-RUD-VOST-UGVS-E109,first11-RUD-VOST-UGVS-E109-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25488,25488,11-RUD-VOST-UGVS-E109-0003,Электрооборудование,11-RUD-VOST-UGVS-E109,first11-RUD-VOST-UGVS-E109-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25489,25489,11-RUD-VOST-UGVS-E110,Экскаватор электрический №27,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E110,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25490,25490,11-RUD-VOST-UGVS-E110-0001,Электрооборудование,11-RUD-VOST-UGVS-E110,first11-RUD-VOST-UGVS-E110-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25491,25491,11-RUD-VOST-UGVS-E110-0002,Ходовая часть(лев),11-RUD-VOST-UGVS-E110,first11-RUD-VOST-UGVS-E110-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25492,25492,11-RUD-VOST-UGVS-E110-0003,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E110,first11-RUD-VOST-UGVS-E110-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25493,25493,11-RUD-VOST-UGVS-E111,Экскаватор электрический №29,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E111,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25494,25494,11-RUD-VOST-UGVS-E111-0001,Ходовая часть(лев),11-RUD-VOST-UGVS-E111,first11-RUD-VOST-UGVS-E111-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25495,25495,11-RUD-VOST-UGVS-E111-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E111,first11-RUD-VOST-UGVS-E111-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25496,25496,11-RUD-VOST-UGVS-E111-0003,Электрооборудование,11-RUD-VOST-UGVS-E111,first11-RUD-VOST-UGVS-E111-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25497,25497,11-RUD-VOST-UGVS-E112-0001,Поворотный редуктор/подъемная лебедка,11-RUD-BLAG-UGBL-E106,first11-RUD-VOST-UGVS-E112-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25498,25498,11-RUD-VOST-UGVS-E112-0002,Электрооборудование,11-RUD-BLAG-UGBL-E106,first11-RUD-VOST-UGVS-E112-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25499,25499,11-RUD-VOST-UGVS-E112-0003,Ходовая часть(лев),11-RUD-BLAG-UGBL-E106,first11-RUD-VOST-UGVS-E112-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25500,25500,11-RUD-VOST-UGVS-E113,Экскаватор электрический №31,11-RUD-VOST-UGVS-EG10,first11-RUD-VOST-UGVS-E113,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25501,25501,11-RUD-VOST-UGVS-E113-0001,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E113,first11-RUD-VOST-UGVS-E113-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25502,25502,11-RUD-VOST-UGVS-E113-0002,Электрооборудование,11-RUD-VOST-UGVS-E113,first11-RUD-VOST-UGVS-E113-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25503,25503,11-RUD-VOST-UGVS-E113-0003,Ходовая часть(лев),11-RUD-VOST-UGVS-E113,first11-RUD-VOST-UGVS-E113-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25504,25504,11-RUD-VOST-UGVS-E201,Экскаватор электрический №9,11-RUD-VOST-UGVS-EG20,first11-RUD-VOST-UGVS-E201,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25505,25505,11-RUD-VOST-UGVS-E201-0001,Напорный механизм,11-RUD-VOST-UGVS-E201,first11-RUD-VOST-UGVS-E201-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25506,25506,11-RUD-VOST-UGVS-E201-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E201,first11-RUD-VOST-UGVS-E201-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25507,25507,11-RUD-VOST-UGVS-E201-0003,Ходовая часть(прав),11-RUD-VOST-UGVS-E201,first11-RUD-VOST-UGVS-E201-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25508,25508,11-RUD-VOST-UGVS-E201-0004,Ходовая часть(лев),11-RUD-VOST-UGVS-E201,first11-RUD-VOST-UGVS-E201-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25509,25509,11-RUD-VOST-UGVS-E501,Экскаватор электрический №05,11-999-1105,first11-RUD-VOST-UGVS-E501,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25510,25510,11-RUD-VOST-UGVS-E501-0001,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E501,first11-RUD-VOST-UGVS-E501-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25511,25511,11-RUD-VOST-UGVS-E501-0002,Ходовая часть(лев),11-RUD-VOST-UGVS-E501,first11-RUD-VOST-UGVS-E501-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25512,25512,11-RUD-VOST-UGVS-E501-0003,Ходовая часть(прав),11-RUD-VOST-UGVS-E501,first11-RUD-VOST-UGVS-E501-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25513,25513,11-RUD-VOST-UGVS-E501-0004,Напорный механизм,11-RUD-VOST-UGVS-E501,first11-RUD-VOST-UGVS-E501-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25514,25514,11-RUD-VOST-UGVS-E502,Экскаватор электрический №11,11-RUD-VOST-UGVS-EG5A,first11-RUD-VOST-UGVS-E502,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25515,25515,11-RUD-VOST-UGVS-E502-0001,Напорный механизм,11-RUD-VOST-UGVS-E502,first11-RUD-VOST-UGVS-E502-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25516,25516,11-RUD-VOST-UGVS-E502-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E502,first11-RUD-VOST-UGVS-E502-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25517,25517,11-RUD-VOST-UGVS-E502-0003,Ходовая часть(лев),11-RUD-VOST-UGVS-E502,first11-RUD-VOST-UGVS-E502-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25518,25518,11-RUD-VOST-UGVS-E502-0004,Ходовая часть(прав),11-RUD-VOST-UGVS-E502,first11-RUD-VOST-UGVS-E502-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25519,25519,11-RUD-VOST-UGVS-E503,Экскаватор электрический №23,11-RUD-VOST-UGVS-EG5A,first11-RUD-VOST-UGVS-E503,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25520,25520,11-RUD-VOST-UGVS-E503-0001,Напорный механизм,11-RUD-VOST-UGVS-E503,first11-RUD-VOST-UGVS-E503-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25521,25521,11-RUD-VOST-UGVS-E503-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-E503,first11-RUD-VOST-UGVS-E503-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25522,25522,11-RUD-VOST-UGVS-E503-0003,Ходовая часть(лев),11-RUD-VOST-UGVS-E503,first11-RUD-VOST-UGVS-E503-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25523,25523,11-RUD-VOST-UGVS-E503-0004,Ходовая часть(прав),11-RUD-VOST-UGVS-E503,first11-RUD-VOST-UGVS-E503-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25524,25524,11-RUD-VOST-UGVS-EG10,Экскаваторы ЭКГ-10,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-EG10,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25525,25525,11-RUD-VOST-UGVS-EG20,Экскаваторы ЭКГ-20,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-EG20,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25526,25526,11-RUD-VOST-UGVS-EG5A,Экскаваторы ЭКГ-5А,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-EG5A,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25527,25527,11-RUD-VOST-UGVS-P601,Экскаватор гидравлический №501,11-RUD-VOST-UGVS-PC36,first11-RUD-VOST-UGVS-P601,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25528,25528,11-RUD-VOST-UGVS-P601-0001,Рабочее оборудование,11-RUD-VOST-UGVS-P601,first11-RUD-VOST-UGVS-P601-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25529,25529,11-RUD-VOST-UGVS-P601-0002,Ходовая часть(прав),11-RUD-VOST-UGVS-P601,first11-RUD-VOST-UGVS-P601-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25530,25530,11-RUD-VOST-UGVS-P601-0003,Гидравлическая система,11-RUD-VOST-UGVS-P601,first11-RUD-VOST-UGVS-P601-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25531,25531,11-RUD-VOST-UGVS-P601-0004,ДВС,11-RUD-VOST-UGVS-P601,first11-RUD-VOST-UGVS-P601-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25532,25532,11-RUD-VOST-UGVS-P701,Экскаватор гидравлический №04,11-RUD-VOST-UGVS-PC17,first11-RUD-VOST-UGVS-P701,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25533,25533,11-RUD-VOST-UGVS-P701-0001,Гидравлическая система,11-RUD-VOST-UGVS-P701,first11-RUD-VOST-UGVS-P701-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25534,25534,11-RUD-VOST-UGVS-P701-0002,ДВС,11-RUD-VOST-UGVS-P701,first11-RUD-VOST-UGVS-P701-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25535,25535,11-RUD-VOST-UGVS-P701-0003,Рабочее оборудование,11-RUD-VOST-UGVS-P701,first11-RUD-VOST-UGVS-P701-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25536,25536,11-RUD-VOST-UGVS-P701-0004,Ходовая часть(прав),11-RUD-VOST-UGVS-P701,first11-RUD-VOST-UGVS-P701-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25537,25537,11-RUD-VOST-UGVS-P702,Экскаватор гидравлический №06,11-RUD-VOST-UGVS-PC17,first11-RUD-VOST-UGVS-P702,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25538,25538,11-RUD-VOST-UGVS-P702-0001,ДВС,11-RUD-VOST-UGVS-P702,first11-RUD-VOST-UGVS-P702-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25539,25539,11-RUD-VOST-UGVS-P702-0002,Рабочее оборудование,11-RUD-VOST-UGVS-P702,first11-RUD-VOST-UGVS-P702-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25540,25540,11-RUD-VOST-UGVS-P702-0003,Ходовая часть(прав),11-RUD-VOST-UGVS-P702,first11-RUD-VOST-UGVS-P702-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25541,25541,11-RUD-VOST-UGVS-P702-0004,Гидравлическая система,11-RUD-VOST-UGVS-P702,first11-RUD-VOST-UGVS-P702-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25542,25542,11-RUD-VOST-UGVS-PC01,Экскаватор гидравлический №26,11-RUD-VOST-UGVS-PC28,first11-RUD-VOST-UGVS-PC01,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25543,25543,11-RUD-VOST-UGVS-PC17,Экскаваторы PC1250-7,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-PC17,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25544,25544,11-RUD-VOST-UGVS-PC28,Экскаваторы PC2000-8,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-PC28,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25545,25545,11-RUD-VOST-UGVS-PC36,Экскаваторы PC3000-6,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-PC36,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25546,25546,11-RUD-VOST-UGVS-W201,Экскаватор электрический №02,11-RUD-VOST-UGVS-WK20,first11-RUD-VOST-UGVS-W201,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25547,25547,11-RUD-VOST-UGVS-W201-0001,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-W201,first11-RUD-VOST-UGVS-W201-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25548,25548,11-RUD-VOST-UGVS-W201-0002,Напорный механизм,11-RUD-VOST-UGVS-W201,first11-RUD-VOST-UGVS-W201-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25549,25549,11-RUD-VOST-UGVS-W201-0003,Ходовая часть(лев),11-RUD-VOST-UGVS-W201,first11-RUD-VOST-UGVS-W201-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25550,25550,11-RUD-VOST-UGVS-W201-0004,Ходовая часть(прав),11-RUD-VOST-UGVS-W201,first11-RUD-VOST-UGVS-W201-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25551,25551,11-RUD-VOST-UGVS-W201-0005,Шкаф управления,11-RUD-VOST-UGVS-W201,first11-RUD-VOST-UGVS-W201-0005,first11,RUD,VOST,UGVS,0005,no_data,no_data,no_data
+25552,25552,11-RUD-VOST-UGVS-W202,Экскаватор электрический №09,11-999-1105,first11-RUD-VOST-UGVS-W202,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25553,25553,11-RUD-VOST-UGVS-W301,Экскаватор электрический №04,11-RUD-VOST-UGVS-WK35,first11-RUD-VOST-UGVS-W301,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25554,25554,11-RUD-VOST-UGVS-W301-0001,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-W301,first11-RUD-VOST-UGVS-W301-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25555,25555,11-RUD-VOST-UGVS-W301-0002,Ходовая часть(прав),11-RUD-VOST-UGVS-W301,first11-RUD-VOST-UGVS-W301-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25556,25556,11-RUD-VOST-UGVS-W301-0003,Напорный механизм,11-RUD-VOST-UGVS-W301,first11-RUD-VOST-UGVS-W301-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25557,25557,11-RUD-VOST-UGVS-W301-0004,Централизованная система смазки,11-RUD-VOST-UGVS-W301,first11-RUD-VOST-UGVS-W301-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25558,25558,11-RUD-VOST-UGVS-W302,Экскаватор электрический №05,11-RUD-VOST-UGVS-WK35,first11-RUD-VOST-UGVS-W302,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25559,25559,11-RUD-VOST-UGVS-W302-0001,Ходовая часть(прав),11-RUD-VOST-UGVS-W302,first11-RUD-VOST-UGVS-W302-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25560,25560,11-RUD-VOST-UGVS-W302-0002,Напорный механизм,11-RUD-VOST-UGVS-W302,first11-RUD-VOST-UGVS-W302-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25561,25561,11-RUD-VOST-UGVS-W302-0003,Централизованная система смазки,11-RUD-VOST-UGVS-W302,first11-RUD-VOST-UGVS-W302-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25562,25562,11-RUD-VOST-UGVS-W302-0004,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-W302,first11-RUD-VOST-UGVS-W302-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25563,25563,11-RUD-VOST-UGVS-W303,Экскаватор электрический №06,11-RUD-VOST-UGVS-WK35,first11-RUD-VOST-UGVS-W303,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25564,25564,11-RUD-VOST-UGVS-W303-0001,Централизованная система смазки,11-RUD-VOST-UGVS-W303,first11-RUD-VOST-UGVS-W303-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25565,25565,11-RUD-VOST-UGVS-W303-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-W303,first11-RUD-VOST-UGVS-W303-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25566,25566,11-RUD-VOST-UGVS-W303-0003,Ходовая часть(прав),11-RUD-VOST-UGVS-W303,first11-RUD-VOST-UGVS-W303-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25567,25567,11-RUD-VOST-UGVS-W303-0004,Напорный механизм,11-RUD-VOST-UGVS-W303,first11-RUD-VOST-UGVS-W303-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25568,25568,11-RUD-VOST-UGVS-W304,Экскаватор электрический №07,11-RUD-VOST-UGVS-WK35,first11-RUD-VOST-UGVS-W304,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25569,25569,11-RUD-VOST-UGVS-W304-0001,Централизованная система смазки,11-RUD-VOST-UGVS-W304,first11-RUD-VOST-UGVS-W304-0001,first11,RUD,VOST,UGVS,0001,no_data,no_data,no_data
+25570,25570,11-RUD-VOST-UGVS-W304-0002,Поворотный редуктор/подъемная лебедка,11-RUD-VOST-UGVS-W304,first11-RUD-VOST-UGVS-W304-0002,first11,RUD,VOST,UGVS,0002,no_data,no_data,no_data
+25571,25571,11-RUD-VOST-UGVS-W304-0003,Ходовая часть(прав),11-RUD-VOST-UGVS-W304,first11-RUD-VOST-UGVS-W304-0003,first11,RUD,VOST,UGVS,0003,no_data,no_data,no_data
+25572,25572,11-RUD-VOST-UGVS-W304-0004,Напорный механизм,11-RUD-VOST-UGVS-W304,first11-RUD-VOST-UGVS-W304-0004,first11,RUD,VOST,UGVS,0004,no_data,no_data,no_data
+25573,25573,11-RUD-VOST-UGVS-WK20,Экскаваторы WK-20,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-WK20,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data
+25574,25574,11-RUD-VOST-UGVS-WK35,Экскаваторы WK-35,11-RUD-VOST-UGVS,first11-RUD-VOST-UGVS-WK35,first11,RUD,VOST,UGVS,no_data,no_data,no_data,no_data

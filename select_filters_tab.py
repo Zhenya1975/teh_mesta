@@ -127,6 +127,14 @@ def select_filters_tab():
                 dbc.Col(
                     children=[
                         html.P(id='number_of_rows_text'),
+                        html.Div([
+                            dbc.Button("Выгрузить Excel", id="btn-download", size="sm",
+                                                style={'marginBottom': '3px',
+                                                       'marginTop': '3px',
+                                                       'backgroundColor': '#232632'},),
+                            dcc.Download(id="download-excel")
+                        ]),
+                        html.P(),
                         html.Div(id='code_table'),
                     ])
             ])

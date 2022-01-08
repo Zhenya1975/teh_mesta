@@ -209,6 +209,16 @@ def meeting_plan_fact(
 
     return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, checklist_level_4_values, checklist_level_4_options,code_table, number_of_rows_text
 
+@app.callback(
+    Output("download-excel", "data"),
+    Input("btn-download", "n_clicks"),
+    prevent_initial_call=True,
+)
+def func(n_clicks):
+    if n_clicks:
+        df = pd.read_csv('data/result_df.csv', dtype=str)
+        df = df.loc[:, ['Техническое место', 'Название технического места',	'Вышестоящее ТехМесто']]
+        return dcc.send_data_frame(df.to_excel, "тех_места.xlsx", index=False, sheet_name="тех_места")
 
 if __name__ == "__main__":
     app.run_server(debug=True)

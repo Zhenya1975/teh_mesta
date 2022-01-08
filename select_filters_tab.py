@@ -93,6 +93,34 @@ def select_filters_tab():
 
                                  ])
                     ]
+                ),
+                dbc.Col(
+                    children=[
+                        html.P("Уровень 4"),
+                        html.Div(style={'marginLeft': '3px'},
+                                 children=[
+                                     dbc.Button("Выбрать все", size="sm",
+                                                id="select_all_level_4",
+                                                style={'marginBottom': '3px',
+                                                       'marginTop': '3px',
+                                                       'backgroundColor': '#232632'}
+                                                ),
+                                     dbc.Button("Снять выбор", color="secondary",
+                                                id="release_all_level_4",
+                                                size="sm",
+                                                style={'marginBottom': '3px',
+                                                       'marginTop': '3px',
+                                                       'backgroundColor': '#232632'},
+                                                ),
+                                     dcc.Checklist(
+                                         id='checklist_level_4',
+                                         # options=regions,
+                                         # value=regions_list,
+                                         labelStyle=dict(display='block')),
+                                     # html.Hr(className="hr"),
+
+                                 ])
+                    ]
                 )
             ]),
             dbc.Row([

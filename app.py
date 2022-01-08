@@ -87,6 +87,8 @@ app.layout = dbc.Container(
     Output("checklist_level_2", "options"),
     Output("checklist_level_3", "value"),
     Output("checklist_level_3", "options"),
+    Output("checklist_level_4", "value"),
+    Output("checklist_level_4", "options"),
     Output('code_table', 'children'),
     Output('number_of_rows_text', 'children'),
 
@@ -102,6 +104,9 @@ app.layout = dbc.Container(
         Input('checklist_level_3', 'value'),
         Input('select_all_level_3', 'n_clicks'),
         Input('release_all_level_3', 'n_clicks'),
+        Input('checklist_level_4', 'value'),
+        Input('select_all_level_4', 'n_clicks'),
+        Input('release_all_level_4', 'n_clicks'),
     ],
 )
 def meeting_plan_fact(
@@ -113,7 +118,10 @@ def meeting_plan_fact(
         release_all_level_2,
         checklist_level_3,
         select_all_level_3,
-        release_all_level_3
+        release_all_level_3,
+        checklist_level_4,
+        select_all_level_4,
+        release_all_level_4
 ):
     changed_id = [p['prop_id'] for p in callback_context.triggered][0]
 
@@ -140,6 +148,12 @@ def meeting_plan_fact(
     # на начальном экране фильтра пустые
     checklist_level_3_values = []
 
+    # Список чек-боксов Level_4
+    level_4_df = pd.read_csv('data/level_4_selected_items.csv', dtype=str)
+    checklist_level_4_options = functions.level_checklist_data(level_4_df)[0]
+    # на начальном экране фильтра пустые
+    checklist_level_4_values = []
+
     #  теперь надо проверять. Если список чек-боксов не None и его длина не равна нулю, то
     # то надо включать фильтр по выбранному чек-боксу. В таблицу
     # print('checklist_level_1: ', checklist_level_1)
@@ -154,6 +168,10 @@ def meeting_plan_fact(
     if checklist_level_3 and len(checklist_level_3)>0:
         result_df = result_df.loc[result_df['level_3'].isin(checklist_level_3)]
         checklist_level_3_values = checklist_level_3
+
+    if checklist_level_4 and len(checklist_level_4)>0:
+        result_df = result_df.loc[result_df['level_4'].isin(checklist_level_4)]
+        checklist_level_4_values = checklist_level_4
 
 
     result_df.to_csv('data/result_df.csv')
@@ -189,7 +207,7 @@ def meeting_plan_fact(
         style_cell={'textAlign': 'left'},
     )
 
-    return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, code_table, number_of_rows_text
+    return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, checklist_level_4_values, checklist_level_4_options,code_table, number_of_rows_text
 
 
 if __name__ == "__main__":

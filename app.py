@@ -6,6 +6,7 @@ from dash_bootstrap_templates import load_figure_template
 
 import functions
 import select_filters_tab
+import settings_tab
 from dash import dash_table
 # import plotly.graph_objects as go
 
@@ -19,7 +20,10 @@ url_theme2 = dbc.themes.DARKLY
 
 teh_mesta_full_list = pd.read_csv('data/origin_codes_df.csv', dtype=str)
 teh_mesta_full_list.fillna('no_data', inplace=True)
-
+loading_style = {
+    # 'position': 'absolute',
+                 # 'align-self': 'center'
+                 }
 
 templates = [
     "bootstrap",
@@ -64,6 +68,7 @@ app.layout = dbc.Container(
                             # className='custom-tabs-container',
                             children=[
                                 select_filters_tab.select_filters_tab(),
+                                settings_tab.settings_tab()
 
                                 # tab2(),
                                 # tab3(),
@@ -91,6 +96,7 @@ app.layout = dbc.Container(
     Output("checklist_level_4", "options"),
     Output('code_table', 'children'),
     Output('number_of_rows_text', 'children'),
+    Output('loading', 'parent_style')
 
 ],
 
@@ -185,6 +191,8 @@ def meeting_plan_fact(
 
         temp_dict['Код технического места'] = teh_mesto_code
         temp_dict['Наименование технического места'] = row['Название технического места']
+        temp_dict['Вышестоящее ТехМесто'] = row['Вышестоящее ТехМесто']
+
         table_list.append(temp_dict)
     table_df = pd.DataFrame(table_list)
     number_of_rows = len(table_df)
@@ -206,8 +214,8 @@ def meeting_plan_fact(
         },
         style_cell={'textAlign': 'left'},
     )
-
-    return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, checklist_level_4_values, checklist_level_4_options,code_table, number_of_rows_text
+    new_loading_style = loading_style
+    return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, checklist_level_4_values, checklist_level_4_options,code_table, number_of_rows_text, new_loading_style
 
 @app.callback(
     Output("download-excel", "data"),

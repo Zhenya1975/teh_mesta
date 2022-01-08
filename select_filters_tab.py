@@ -1,6 +1,9 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
-
+loading_style = {
+    # 'position': 'absolute',
+                 # 'align-self': 'center'
+                 }
 def select_filters_tab():
     select_filters_tab_block = dcc.Tab(
         label='Выбор параметров техмест',
@@ -135,7 +138,18 @@ def select_filters_tab():
                             dcc.Download(id="download-excel")
                         ]),
                         html.P(),
-                        html.Div(id='code_table'),
+                        html.Div(
+                            children=[
+                                html.Div(id='code_table'),
+                                dcc.Loading(id='loading', parent_style=loading_style)
+                            ], style={
+                                # 'position': 'relative',
+                                # 'display': 'flex',
+                                'justify-content': 'center'
+                                      }
+                            ),
+
+
                     ])
             ])
         ]

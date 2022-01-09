@@ -96,6 +96,10 @@ app.layout = dbc.Container(
     Output("checklist_level_3", "options"),
     Output("checklist_level_4", "value"),
     Output("checklist_level_4", "options"),
+    Output("checklist_level_5", "value"),
+    Output("checklist_level_5", "options"),
+    Output("checklist_level_upper", "value"),
+    Output("checklist_level_upper", "options"),
     Output('code_table', 'children'),
     Output('number_of_rows_text', 'children'),
     Output('loading', 'parent_style')
@@ -115,6 +119,12 @@ app.layout = dbc.Container(
         Input('checklist_level_4', 'value'),
         Input('select_all_level_4', 'n_clicks'),
         Input('release_all_level_4', 'n_clicks'),
+        Input('checklist_level_5', 'value'),
+        Input('select_all_level_5', 'n_clicks'),
+        Input('release_all_level_5', 'n_clicks'),
+        Input('checklist_level_upper', 'value'),
+        Input('select_all_level_upper', 'n_clicks'),
+        Input('release_all_level_upper', 'n_clicks'),
     ],
 )
 def meeting_plan_fact(
@@ -129,7 +139,13 @@ def meeting_plan_fact(
         release_all_level_3,
         checklist_level_4,
         select_all_level_4,
-        release_all_level_4
+        release_all_level_4,
+        checklist_level_5,
+        select_all_level_5,
+        release_all_level_5,
+        checklist_level_upper,
+        select_all_level_upper,
+        release_all_level_upper
 ):
     changed_id = [p['prop_id'] for p in callback_context.triggered][0]
 
@@ -137,30 +153,60 @@ def meeting_plan_fact(
     result_df = teh_mesta_full_list
     # фильтра должны быть пустыми. Принцип такой. Пустой фильтр - это не примененный фильтр. То есть
     # отдаются все данные, которые есть без фильтрации.
-    level_1_df = pd.read_csv('data/level_1_selected_items.csv', dtype=str)
+    selected_items_df = pd.read_csv('data/selected_items.csv', dtype=str)
+    selected_items_df = selected_items_df.astype({"level_no": int})
 
-    # Список чек-боксов Level_1
-    checklist_level_1_options = functions.level_checklist_data(level_1_df)[0]
+
+    level_1_df = selected_items_df.loc[selected_items_df['level_no'] == 1]
+    checklist_level_1_options = []
+    if len(level_1_df)>0:
+        checklist_level_1_options = functions.level_checklist_data(level_1_df)[0]
     # на начальном экране фильтра пустые
     checklist_level_1_values = []
 
     # Список чек-боксов Level_2
-    level_2_df = pd.read_csv('data/level_2_selected_items.csv', dtype=str)
-    checklist_level_2_options = functions.level_checklist_data(level_2_df)[0]
+    level_2_df = selected_items_df.loc[selected_items_df['level_no'] == 2]
+    checklist_level_2_options = []
+    if len(level_2_df) > 0:
+        checklist_level_2_options = functions.level_checklist_data(level_2_df)[0]
     # на начальном экране фильтра пустые
     checklist_level_2_values = []
 
+
     # Список чек-боксов Level_3
-    level_3_df = pd.read_csv('data/level_3_selected_items.csv', dtype=str)
-    checklist_level_3_options = functions.level_checklist_data(level_3_df)[0]
+    level_3_df = selected_items_df.loc[selected_items_df['level_no'] == 3]
+    checklist_level_3_options = []
+    if len(level_3_df) > 0:
+        checklist_level_3_options = functions.level_checklist_data(level_3_df)[0]
     # на начальном экране фильтра пустые
     checklist_level_3_values = []
 
+
     # Список чек-боксов Level_4
-    level_4_df = pd.read_csv('data/level_4_selected_items.csv', dtype=str)
-    checklist_level_4_options = functions.level_checklist_data(level_4_df)[0]
+    level_4_df = selected_items_df.loc[selected_items_df['level_no'] == 4]
+    checklist_level_4_options = []
+    if len(level_4_df) > 0:
+        checklist_level_4_options = functions.level_checklist_data(level_4_df)[0]
     # на начальном экране фильтра пустые
     checklist_level_4_values = []
+
+
+    # Список чек-боксов Level_5
+    level_5_df = selected_items_df.loc[selected_items_df['level_no'] == 5]
+    checklist_level_5_options = []
+    if len(level_5_df) > 0:
+        checklist_level_5_options = functions.level_checklist_data(level_5_df)[0]
+    # на начальном экране фильтра пустые
+    checklist_level_5_values = []
+
+    # Список чек-боксов Level_upper
+    level_upper_df = selected_items_df.loc[selected_items_df['level_no'] == 0]
+    checklist_level_upper_options = []
+    if len(level_upper_df) > 0:
+        checklist_level_upper_options = functions.level_checklist_data(level_upper_df)[0]
+    # на начальном экране фильтра пустые
+    checklist_level_upper_values = []
+
 
     #  теперь надо проверять. Если список чек-боксов не None и его длина не равна нулю, то
     # то надо включать фильтр по выбранному чек-боксу. В таблицу
@@ -181,6 +227,13 @@ def meeting_plan_fact(
         result_df = result_df.loc[result_df['level_4'].isin(checklist_level_4)]
         checklist_level_4_values = checklist_level_4
 
+    if checklist_level_5 and len(checklist_level_5)>0:
+        result_df = result_df.loc[result_df['level_5'].isin(checklist_level_5)]
+        checklist_level_5_values = checklist_level_5
+
+    if checklist_level_upper and len(checklist_level_upper)>0:
+        result_df = result_df.loc[result_df['level_upper'].isin(checklist_level_upper)]
+        checklist_level_upper_values = checklist_level_upper
 
     result_df.to_csv('data/result_df.csv')
 
@@ -205,7 +258,7 @@ def meeting_plan_fact(
         # id='table',
         columns=[{"name": i, "id": i} for i in table_df.columns],
         data=table_df.to_dict('records'),
-
+        filter_action='native',
         style_header={
             # 'backgroundColor': 'white',
             'fontWeight': 'bold'
@@ -217,7 +270,7 @@ def meeting_plan_fact(
         style_cell={'textAlign': 'left'},
     )
     new_loading_style = loading_style
-    return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, checklist_level_4_values, checklist_level_4_options,code_table, number_of_rows_text, new_loading_style
+    return checklist_level_1_values, checklist_level_1_options,checklist_level_2_values, checklist_level_2_options, checklist_level_3_values, checklist_level_3_options, checklist_level_4_values, checklist_level_4_options, checklist_level_5_values, checklist_level_5_options, checklist_level_upper_values, checklist_level_upper_options, code_table, number_of_rows_text, new_loading_style
 
 @app.callback(
     Output("download-excel", "data"),
@@ -270,6 +323,7 @@ def parse_contents(contents, filename):
         dash_table.DataTable(
             data=df.to_dict('records'),
             columns=[{'name': i, 'id': i} for i in df.columns],
+            filter_action='native',
             style_header={
                 # 'backgroundColor': 'white',
                 'fontWeight': 'bold'

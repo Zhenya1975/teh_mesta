@@ -246,7 +246,7 @@ def meeting_plan_fact(
 
         temp_dict['Код технического места'] = teh_mesto_code
         temp_dict['Наименование технического места'] = row['Название технического места']
-        temp_dict['Вышестоящее ТехМесто'] = row['Вышестоящее ТехМесто']
+        temp_dict['level_upper'] = row['level_upper']
 
         table_list.append(temp_dict)
     table_df = pd.DataFrame(table_list)
@@ -310,6 +310,7 @@ def parse_contents(contents, filename):
         elif 'xlsx' in filename:
             # Assume that the user uploaded an excel file
             df = pd.read_excel(io.BytesIO(decoded))
+            df.to_csv('data/selected_items.csv')
     except Exception as e:
         print(e)
         return html.Div([
@@ -355,7 +356,9 @@ def update_output(list_of_contents, list_of_names):
         children = [
             parse_contents(c, n) for c, n in
             zip(list_of_contents, list_of_names)]
+        
         return children
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    # app.run_server(debug=True)
+    app.run_server(host='0.0.0.0', debug=False)

@@ -10,7 +10,10 @@ import settings_tab
 from dash import dash_table
 import base64
 import io
+import json
 # import plotly.graph_objects as go
+
+
 
 # select the Bootstrap stylesheet2 and figure template2 for the theme toggle here:
 # template_theme1 = "sketchy"
@@ -149,8 +152,42 @@ def meeting_plan_fact(
 ):
     changed_id = [p['prop_id'] for p in callback_context.triggered][0]
 
+
+    # читаем файл с дефолтными фильтрами
+    # Opening JSON file
+    with open('saved_filters.json', 'r') as openfile:
+      # Reading from json file
+      saved_filters_dict = json.load(openfile)
+
+
+    
+
+    if len(saved_filters_dict['level_2'])>0:
+      checklist_level_2_values = saved_filters_dict['level_2']
+    else:
+      checklist_level_2_values =[]
+
     # по умолчанию result_df - это полный список всех техмест
     result_df = teh_mesta_full_list
+    
+    # если ничего не выбрано в чек-боксах, то берем значения из фильтров
+    if checklist_level_1 == None:
+      if len(saved_filters_dict['level_1'])>0:
+        checklist_level_1_values = saved_filters_dict['level_1']
+        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+      else:
+        checklist_level_1_values =[]
+    # если в чек-боксах что-то есть, то берем значение из чек-бокса и перезаписываем файл json значениями из чек-боксов
+    else:
+      checklist_level_1_values = checklist_level_1
+      result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+
+      # Data to be written
+      saved_filters_dict['level_1'] = checklist_level_1
+      with open("saved_filters.json", "w") as jsonFile:
+        json.dump(saved_filters_dict, jsonFile)    
+
+
     # фильтра должны быть пустыми. Принцип такой. Пустой фильтр - это не примененный фильтр. То есть
     # отдаются все данные, которые есть без фильтрации.
     selected_items_df = pd.read_csv('data/selected_items.csv', dtype=str)
@@ -161,16 +198,13 @@ def meeting_plan_fact(
     checklist_level_1_options = []
     if len(level_1_df)>0:
         checklist_level_1_options = functions.level_checklist_data(level_1_df)[0]
-    # на начальном экране фильтра пустые
-    checklist_level_1_values = []
 
     # Список чек-боксов Level_2
     level_2_df = selected_items_df.loc[selected_items_df['level_no'] == 2]
     checklist_level_2_options = []
     if len(level_2_df) > 0:
         checklist_level_2_options = functions.level_checklist_data(level_2_df)[0]
-    # на начальном экране фильтра пустые
-    checklist_level_2_values = []
+    
 
 
     # Список чек-боксов Level_3
@@ -210,10 +244,11 @@ def meeting_plan_fact(
 
     #  теперь надо проверять. Если список чек-боксов не None и его длина не равна нулю, то
     # то надо включать фильтр по выбранному чек-боксу. В таблицу
-    # print('checklist_level_1: ', checklist_level_1)
+  
     if checklist_level_1 and len(checklist_level_1)>0:
         result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1)]
         checklist_level_1_values = checklist_level_1
+        print(checklist_level_1_values)
 
     if checklist_level_2 and len(checklist_level_2)>0:
         result_df = result_df.loc[result_df['level_2'].isin(checklist_level_2)]

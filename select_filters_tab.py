@@ -10,7 +10,18 @@ def select_filters_tab():
         value='tab_select_parameters',
         children=[
             dbc.Row([
-                dbc.Col(
+                # колонка с фильтрами
+                dbc.Col(width=3,
+                  children=[
+                    html.P('Уровень 1'),
+                    dcc.Dropdown(
+                      id='checklist_level_1',
+                      multi=True
+                )
+                  ]
+
+                ),
+                dbc.Col(width=9,
                     children=[
                         html.P("Уровень 1"),
                         html.Div(style={'marginLeft': '3px'},
@@ -28,11 +39,11 @@ def select_filters_tab():
                                                        'marginTop': '3px',
                                                        'backgroundColor': '#232632'},
                                                 ),
-                                     dcc.Checklist(
-                                         id='checklist_level_1',
-                                         # options=regions,
-                                         # value=regions_list,
-                                         labelStyle=dict(display='block')),
+                                     #dcc.Checklist(
+                                     #    id='checklist_level_1',
+                                     #    # options=regions,
+                                     #    # value=regions_list,
+                                     #    labelStyle=dict(display='block')),
                                      # html.Hr(className="hr"),
 
                                      html.P(),

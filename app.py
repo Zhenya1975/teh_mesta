@@ -12,7 +12,7 @@ import base64
 import io
 import json
 # import plotly.graph_objects as go
-
+import result_df_prep
 
 
 # select the Bootstrap stylesheet2 and figure template2 for the theme toggle here:
@@ -111,8 +111,6 @@ app.layout = dbc.Container(
 
     [
         Input('checklist_level_1', 'value'),
-        Input('select_all_level_1', 'n_clicks'),
-        Input('release_all_level_1', 'n_clicks'),
         Input('checklist_level_2', 'value'),
         Input('select_all_level_2', 'n_clicks'),
         Input('release_all_level_2', 'n_clicks'),
@@ -132,8 +130,6 @@ app.layout = dbc.Container(
 )
 def meeting_plan_fact(
         checklist_level_1,
-        select_all_level_1,
-        release_all_level_1,
         checklist_level_2,
         select_all_level_2,
         release_all_level_2,
@@ -159,56 +155,93 @@ def meeting_plan_fact(
       # Reading from json file
       saved_filters_dict = json.load(openfile)
 
-
+    initial_filter_level_1 = saved_filters_dict['level_1']
+    initial_filter_level_2 = saved_filters_dict['level_2']
+    initial_result_df = result_df_prep.initial_result_df_prep(initial_filter_level_1, initial_filter_level_2)
     
-
-    if len(saved_filters_dict['level_2'])>0:
-      checklist_level_2_values = saved_filters_dict['level_2']
-    else:
-      checklist_level_2_values =[]
-
     # по умолчанию result_df - это полный список всех техмест
     result_df = teh_mesta_full_list
+
+    # Нужно из сохраненных фильтров собрать первоначальную загрузку таблицы
+    level_1_full_value_list = teh_mesta_full_list['level_1'].unique() # полный список уникальных значений из level_1
+    if len(saved_filters_dict['level_1'])>0:  # если в json есть данные по этому уровню, то применяем. 
+      checklist_level_1_values = saved_filters_dict['level_1']
+      result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+    else: # если сохраненных фильтров нет, то применяется полный список
+      checklist_level_1_values = []
+      result_df = result_df.loc[result_df['level_1'].isin(level_1_full_value_list)]
+
+    # допустим, обрезали по первому уровню. Если он актуален. Можно резать дальше
+    level_2_full_value_list = teh_mesta_full_list['level_2'].unique() # полный список уникальных значений из level_1
+    if len(saved_filters_dict['level_2'])>0:  # если в json есть данные по этому уровню, то применяем. 
+      checklist_level_2_values = saved_filters_dict['level_2']
+      result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+    else: # если сохраненных фильтров нет, то применяется полный список
+      checklist_level_2_values = []
+      result_df = result_df.loc[result_df['level_2'].isin(level_2_full_value_list)]
+
+
+    # print('длина: ', len(saved_filters_dict['level_1']))
+    ################## level_1 VALUES ###################################
     
 
-    if len(saved_filters_dict['level_1'])>0: # сначала смотрим в json. Если там что-то есть, то применяем
-        checklist_level_1_values = saved_filters_dict['level_1']
-        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
-    else: # Если там ничего нет, то  изменения в result_df не вносим
-      checklist_level_1_values =[] # если в json нет пусто, то изменения в result_df не вносим
-    
-
-    if checklist_level_1 and len(checklist_level_1)>0: # если селект с фильтром существует и там что-то есть,, то применяем
+    if 'checklist_level_1' in changed_id:
+      if len(checklist_level_1) == 0:
+        checklist_level_1_values = []
+        level_1_full_value_list = teh_mesta_full_list['level_1'].unique() # полный список уникальных значений из level_1
+        result_df = result_df.loc[result_df['level_1'].isin(level_1_full_value_list)]
+        print('кол-во записей ', len(result_df))
+        # в json записываем пустой список
+        saved_filters_dict['level_1'] = []
+        print('saved_filters_dict', saved_filters_dict)
+        # записываем в json
+        with open("saved_filters.json", "w") as jsonFile:
+          json.dump(saved_filters_dict, jsonFile) 
+      else:
         result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1)]
         checklist_level_1_values = checklist_level_1
         # Сохраняем новые значения в json
         saved_filters_dict['level_1'] = checklist_level_1
+        print('saved_filters_dict', saved_filters_dict)
+        # записываем в json
         with open("saved_filters.json", "w") as jsonFile:
-          json.dump(saved_filters_dict, jsonFile)    
-    else: # если селект не существует или его длина равна нулю
-      # если в json есть данные по этому уровню, то применяем. Есди их там нет, тоо с result_df ничего не произойдет
-      if len(saved_filters_dict['level_1'])>0: 
-        checklist_level_1_values = saved_filters_dict['level_1']
-        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
-
+          json.dump(saved_filters_dict, jsonFile)
+       
     
-    if checklist_level_1 == None: # если в селекте ничего не выбрали, то берем значение из json
-      if len(saved_filters_dict['level_1'])>0: 
-        checklist_level_1_values = saved_filters_dict['level_1']
-        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+ 
+
+    ################## level_2 VALUES ###################################
+
+
+
+    if 'checklist_level_2' in changed_id:
+      if len(checklist_level_2) == 0:
+        checklist_level_2_values = []
+        level_2_full_value_list = teh_mesta_full_list['level_2'].unique() # полный список уникальных значений из level_2
+        print('level_2_full_value_list после обнуления level_2: ', level_2_full_value_list)
+        result_df = result_df.loc[result_df['level_2'].isin(level_2_full_value_list)]
+        print('кол-во записей после обнуления level_2', len(result_df))
+        # в json записываем пустой список
+        saved_filters_dict['level_2'] = []
+        print('saved_filters_dict', saved_filters_dict)
+        # записываем в json
+        with open("saved_filters.json", "w") as jsonFile:
+          json.dump(saved_filters_dict, jsonFile) 
       else:
-        checklist_level_1_values =[] # если в json нет пусто, то изменения в result_df не вносим
-    # если в чек-боксах что-то есть, то берем значение из чек-бокса и перезаписываем файл json значениями из чек-боксов
-    elif len(checklist_level_1)>0:
-      checklist_level_1_values = checklist_level_1
-      result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
-    elif len(checklist_level_1)==0: # если селект жив, но равен нулю, то есть все убрали. Нужно вернуть данные по этому фильтру как будто выбрано все
+        result_df = result_df.loc[result_df['level_2'].isin(checklist_level_2)]
+        checklist_level_2_values = checklist_level_2
+        # Сохраняем новые значения в json
+        saved_filters_dict['level_2'] = checklist_level_2
+        print('saved_filters_dict', saved_filters_dict)
+        # записываем в json
+        with open("saved_filters.json", "w") as jsonFile:
+          json.dump(saved_filters_dict, jsonFile)
 
 
-      # Data to be written
-      saved_filters_dict['level_1'] = checklist_level_1
-      with open("saved_filters.json", "w") as jsonFile:
-        json.dump(saved_filters_dict, jsonFile)    
+
+
+
+
 
 
     # фильтра должны быть пустыми. Принцип такой. Пустой фильтр - это не примененный фильтр. То есть
@@ -265,12 +298,6 @@ def meeting_plan_fact(
     checklist_level_upper_values = []
 
 
-    #  теперь надо проверять. Если список чек-боксов не None и его длина не равна нулю, то
-    # то надо включать фильтр по выбранному чек-боксу. В таблицу
-  
-    if checklist_level_1 and len(checklist_level_1)>0:
-        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1)]
-        checklist_level_1_values = checklist_level_1
         
 
     if checklist_level_2 and len(checklist_level_2)>0:

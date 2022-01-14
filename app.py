@@ -170,17 +170,40 @@ def meeting_plan_fact(
     # по умолчанию result_df - это полный список всех техмест
     result_df = teh_mesta_full_list
     
-    # если ничего не выбрано в чек-боксах, то берем значения из фильтров
-    if checklist_level_1 == None:
-      if len(saved_filters_dict['level_1'])>0:
+
+    if len(saved_filters_dict['level_1'])>0: # сначала смотрим в json. Если там что-то есть, то применяем
+        checklist_level_1_values = saved_filters_dict['level_1']
+        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+    else: # Если там ничего нет, то  изменения в result_df не вносим
+      checklist_level_1_values =[] # если в json нет пусто, то изменения в result_df не вносим
+    
+
+    if checklist_level_1 and len(checklist_level_1)>0: # если селект с фильтром существует и там что-то есть,, то применяем
+        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1)]
+        checklist_level_1_values = checklist_level_1
+        # Сохраняем новые значения в json
+        saved_filters_dict['level_1'] = checklist_level_1
+        with open("saved_filters.json", "w") as jsonFile:
+          json.dump(saved_filters_dict, jsonFile)    
+    else: # если селект не существует или его длина равна нулю
+      # если в json есть данные по этому уровню, то применяем. Есди их там нет, тоо с result_df ничего не произойдет
+      if len(saved_filters_dict['level_1'])>0: 
+        checklist_level_1_values = saved_filters_dict['level_1']
+        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+
+    
+    if checklist_level_1 == None: # если в селекте ничего не выбрали, то берем значение из json
+      if len(saved_filters_dict['level_1'])>0: 
         checklist_level_1_values = saved_filters_dict['level_1']
         result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
       else:
-        checklist_level_1_values =[]
+        checklist_level_1_values =[] # если в json нет пусто, то изменения в result_df не вносим
     # если в чек-боксах что-то есть, то берем значение из чек-бокса и перезаписываем файл json значениями из чек-боксов
-    else:
+    elif len(checklist_level_1)>0:
       checklist_level_1_values = checklist_level_1
       result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
+    elif len(checklist_level_1)==0: # если селект жив, но равен нулю, то есть все убрали. Нужно вернуть данные по этому фильтру как будто выбрано все
+
 
       # Data to be written
       saved_filters_dict['level_1'] = checklist_level_1
@@ -248,7 +271,7 @@ def meeting_plan_fact(
     if checklist_level_1 and len(checklist_level_1)>0:
         result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1)]
         checklist_level_1_values = checklist_level_1
-        print(checklist_level_1_values)
+        
 
     if checklist_level_2 and len(checklist_level_2)>0:
         result_df = result_df.loc[result_df['level_2'].isin(checklist_level_2)]

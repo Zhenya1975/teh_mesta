@@ -262,8 +262,7 @@ def meeting_plan_fact(
     checklist_level_upper_options = []
     if len(level_upper_df) > 0:
         checklist_level_upper_options = functions.level_checklist_data(level_upper_df)[0]
-    # на начальном экране фильтра пустые
-    checklist_level_upper_values = []
+
 
 
      

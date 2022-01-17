@@ -112,11 +112,7 @@ app.layout = dbc.Container(
     [
         Input('checklist_level_1', 'value'),
         Input('checklist_level_2', 'value'),
-        Input('select_all_level_2', 'n_clicks'),
-        Input('release_all_level_2', 'n_clicks'),
         Input('checklist_level_3', 'value'),
-        Input('select_all_level_3', 'n_clicks'),
-        Input('release_all_level_3', 'n_clicks'),
         Input('checklist_level_4', 'value'),
         Input('select_all_level_4', 'n_clicks'),
         Input('release_all_level_4', 'n_clicks'),
@@ -131,11 +127,7 @@ app.layout = dbc.Container(
 def meeting_plan_fact(
         checklist_level_1,
         checklist_level_2,
-        select_all_level_2,
-        release_all_level_2,
         checklist_level_3,
-        select_all_level_3,
-        release_all_level_3,
         checklist_level_4,
         select_all_level_4,
         release_all_level_4,
@@ -146,8 +138,8 @@ def meeting_plan_fact(
         select_all_level_upper,
         release_all_level_upper
 ):
-    changed_id = [p['prop_id'] for p in callback_context.triggered][0]
-
+    # changed_id = [p['prop_id'] for p in callback_context.triggered][0]
+    
 
     # читаем файл с дефолтными фильтрами
     # Opening JSON file
@@ -161,7 +153,7 @@ def meeting_plan_fact(
     else:
       filter_level_1 = checklist_level_1
       saved_filters_dict['level_1'] = checklist_level_1
-      print('saved_filters_dict', saved_filters_dict)
+      # print('saved_filters_dict', saved_filters_dict)
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
@@ -172,15 +164,26 @@ def meeting_plan_fact(
     else:
       filter_level_2 = checklist_level_2
       saved_filters_dict['level_2'] = checklist_level_2
-      print('saved_filters_dict', saved_filters_dict)
+      # print('saved_filters_dict', saved_filters_dict)
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
     checklist_level_2_values = filter_level_2
 
+    ################## level_3 VALUES ###################################
+    if checklist_level_3 == None:
+      filter_level_3 = saved_filters_dict['level_3']
+    else:
+      filter_level_3 = checklist_level_3
+      saved_filters_dict['level_3'] = checklist_level_3
+      # print('saved_filters_dict', saved_filters_dict)
+      # записываем в json
+      with open("saved_filters.json", "w") as jsonFile:
+        json.dump(saved_filters_dict, jsonFile)
+    checklist_level_3_values = filter_level_3
 
-    print('filter_level_1: ', filter_level_1, 'filter_level_2: ', filter_level_2)
-    result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2)
+    print('filter_level_1: ', filter_level_1, 'filter_level_2: ', filter_level_2, 'filter_level_3: ', filter_level_3)
+    result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3)
     print('initial_result_df_len = ', len(result_df))
    
     
@@ -211,8 +214,7 @@ def meeting_plan_fact(
     checklist_level_3_options = []
     if len(level_3_df) > 0:
         checklist_level_3_options = functions.level_checklist_data(level_3_df)[0]
-    # на начальном экране фильтра пустые
-    checklist_level_3_values = []
+
 
 
     # Список чек-боксов Level_4

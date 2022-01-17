@@ -13,73 +13,29 @@ def select_filters_tab():
                 # колонка с фильтрами
                 dbc.Col(width=3,
                   children=[
-                    html.P('Уровень 1'),
-                    dcc.Dropdown(
-                      id='checklist_level_1',
-                      multi=True
-                )
+                    html.P(),
+                    html.Div([
+                      "Уровень 1",
+                      dcc.Dropdown(id="checklist_level_1", multi=True),
+                  ]),
+                    
+                    html.P(),
+                    html.Div([
+                      "Уровень 2",
+                      dcc.Dropdown(id="checklist_level_2", multi=True),
+                  ]),
+
+                  html.P(),
+                    html.Div([
+                      "Уровень 3",
+                      dcc.Dropdown(id="checklist_level_3", multi=True),
+                  ]),
+                
+                 
                   ]
 
                 ),
                 
-                dbc.Col(
-                    children=[
-                        html.P("Уровень 2"),
-                        html.Div(style={'marginLeft': '3px'},
-                                 children=[
-                                     dbc.Button("Выбрать все", size="sm",
-                                                id="select_all_level_2",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'}
-                                                ),
-                                     dbc.Button("Снять выбор", color="secondary",
-                                                id="release_all_level_2",
-                                                size="sm",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'},
-                                                ),
-                                     dcc.Checklist(
-                                         id='checklist_level_2',
-                                         # options=regions,
-                                         # value=regions_list,
-                                         labelStyle=dict(display='block')),
-                                     # html.Hr(className="hr"),
-
-                                     html.P(),
-                                 ])
-                    ]
-                ),
-                dbc.Col(
-                    children=[
-                        html.P("Уровень 3"),
-                        html.Div(style={'marginLeft': '3px'},
-                                 children=[
-                                     dbc.Button("Выбрать все", size="sm",
-                                                id="select_all_level_3",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'}
-                                                ),
-                                     dbc.Button("Снять выбор", color="secondary",
-                                                id="release_all_level_3",
-                                                size="sm",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'},
-                                                ),
-                                     dcc.Checklist(
-                                         id='checklist_level_3',
-                                         # options=regions,
-                                         # value=regions_list,
-                                         labelStyle=dict(display='block')),
-                                     # html.Hr(className="hr"),
-
-
-                                 ])
-                    ]
-                ),
                 dbc.Col(
                     children=[
                         html.P("Уровень 4"),
@@ -190,7 +146,8 @@ def select_filters_tab():
 
 
                     ])
-            ])
+            ]),
+        
         ]
     )
     return select_filters_tab_block

@@ -10,6 +10,16 @@ def select_filters_tab():
         value='tab_select_parameters',
         children=[
             dbc.Row([
+              html.Div([
+                dbc.Button("Выгрузить Excel", id="btn-download", size="sm",
+                                    style={'marginBottom': '3px',
+                                            'marginTop': '3px',
+                                            'backgroundColor': '#232632'},),
+                dcc.Download(id="download-excel")
+              ]),
+            ]),
+
+            dbc.Row([
                 # колонка с фильтрами
                 dbc.Col(width=3,
                   children=[
@@ -36,81 +46,24 @@ def select_filters_tab():
                       "Уровень 4",
                       dcc.Dropdown(id="checklist_level_4", multi=True),
                   ]),
-                
-                 
+
+                  html.P(),
+                    html.Div([
+                      "Уровень 5",
+                      dcc.Dropdown(id="checklist_level_5", multi=True),
+                  ]),
+
+                  html.P(),
+                    html.Div([
+                      "Уровень Вышестоящее техместо",
+                      dcc.Dropdown(id="checklist_level_upper", multi=True),
+                  ]),
                   ]
-
                 ),
-                
-                
-                dbc.Col(
-                    children=[
-                        html.P("Уровень 5"),
-                        html.Div(style={'marginLeft': '3px'},
-                                 children=[
-                                     dbc.Button("Выбрать все", size="sm",
-                                                id="select_all_level_5",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'}
-                                                ),
-                                     dbc.Button("Снять выбор", color="secondary",
-                                                id="release_all_level_5",
-                                                size="sm",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'},
-                                                ),
-                                     dcc.Checklist(
-                                         id='checklist_level_5',
-                                         # options=regions,
-                                         # value=regions_list,
-                                         labelStyle=dict(display='block')),
-                                     # html.Hr(className="hr"),
-
-                                 ])
-                    ]
-                ),
-                dbc.Col(
-                    children=[
-                        html.P("Вышестоящее техместо"),
-                        html.Div(style={'marginLeft': '3px'},
-                                 children=[
-                                     dbc.Button("Выбрать все", size="sm",
-                                                id="select_all_level_upper",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'}
-                                                ),
-                                     dbc.Button("Снять выбор", color="secondary",
-                                                id="release_all_level_upper",
-                                                size="sm",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'},
-                                                ),
-                                     dcc.Checklist(
-                                         id='checklist_level_upper',
-                                         # options=regions,
-                                         # value=regions_list,
-                                         labelStyle=dict(display='block')),
-                                     # html.Hr(className="hr"),
-
-                                 ])
-                    ]
-                ),
-            ]),
-            dbc.Row([
-                dbc.Col(
+                dbc.Col(width=9,
                     children=[
                         html.P(id='number_of_rows_text'),
-                        html.Div([
-                            dbc.Button("Выгрузить Excel", id="btn-download", size="sm",
-                                                style={'marginBottom': '3px',
-                                                       'marginTop': '3px',
-                                                       'backgroundColor': '#232632'},),
-                            dcc.Download(id="download-excel")
-                        ]),
+                        
                         html.P(),
                         html.Div(
                             children=[
@@ -124,8 +77,12 @@ def select_filters_tab():
                             ),
 
 
-                    ])
+                    ]),
+                
             ]),
+            #dbc.Row([
+                
+            #]),
         
         ]
     )

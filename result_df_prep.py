@@ -16,7 +16,7 @@ level_7_full_value_list = teh_mesta_full_list['level_7'].unique() # полный
 level_8_full_value_list = teh_mesta_full_list['level_8'].unique() # полный список уникальных значений из level_8
 level_upper_full_value_list = teh_mesta_full_list['level_upper'].unique() # полный список уникальных значений из level_upper
 
-def initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3):
+def initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3, filter_level_4):
   if len(filter_level_1)==0:
     level_1_filters = level_1_full_value_list
   else:
@@ -31,10 +31,16 @@ def initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3):
     level_3_filters = level_3_full_value_list
   else:
     level_3_filters = filter_level_3
+
+  if len(filter_level_4)==0:
+    level_4_filters = level_4_full_value_list
+  else:
+    level_4_filters = filter_level_4
   
   initial_result_df = result_df.loc[
     result_df['level_1'].isin(level_1_filters)&
     result_df['level_2'].isin(level_2_filters)&
-    result_df['level_3'].isin(level_3_filters)
+    result_df['level_3'].isin(level_3_filters)&
+    result_df['level_4'].isin(level_4_filters)
   ]
   return initial_result_df

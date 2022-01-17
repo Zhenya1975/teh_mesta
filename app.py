@@ -114,8 +114,6 @@ app.layout = dbc.Container(
         Input('checklist_level_2', 'value'),
         Input('checklist_level_3', 'value'),
         Input('checklist_level_4', 'value'),
-        Input('select_all_level_4', 'n_clicks'),
-        Input('release_all_level_4', 'n_clicks'),
         Input('checklist_level_5', 'value'),
         Input('select_all_level_5', 'n_clicks'),
         Input('release_all_level_5', 'n_clicks'),
@@ -129,8 +127,6 @@ def meeting_plan_fact(
         checklist_level_2,
         checklist_level_3,
         checklist_level_4,
-        select_all_level_4,
-        release_all_level_4,
         checklist_level_5,
         select_all_level_5,
         release_all_level_5,
@@ -182,8 +178,20 @@ def meeting_plan_fact(
         json.dump(saved_filters_dict, jsonFile)
     checklist_level_3_values = filter_level_3
 
-    print('filter_level_1: ', filter_level_1, 'filter_level_2: ', filter_level_2, 'filter_level_3: ', filter_level_3)
-    result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3)
+    ################## level_4 VALUES ###################################
+    if checklist_level_4 == None:
+      filter_level_4 = saved_filters_dict['level_4']
+    else:
+      filter_level_4 = checklist_level_4
+      saved_filters_dict['level_4'] = checklist_level_4
+      # print('saved_filters_dict', saved_filters_dict)
+      # записываем в json
+      with open("saved_filters.json", "w") as jsonFile:
+        json.dump(saved_filters_dict, jsonFile)
+    checklist_level_4_values = filter_level_4
+
+    print('filter_level_1: ', filter_level_1, 'filter_level_2: ', filter_level_2, 'filter_level_3: ', filter_level_3, 'filter_level_4: ', filter_level_4)
+    result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3, filter_level_4)
     print('initial_result_df_len = ', len(result_df))
    
     
@@ -222,8 +230,6 @@ def meeting_plan_fact(
     checklist_level_4_options = []
     if len(level_4_df) > 0:
         checklist_level_4_options = functions.level_checklist_data(level_4_df)[0]
-    # на начальном экране фильтра пустые
-    checklist_level_4_values = []
 
 
     # Список чек-боксов Level_5

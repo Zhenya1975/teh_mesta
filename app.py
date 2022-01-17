@@ -155,92 +155,35 @@ def meeting_plan_fact(
       # Reading from json file
       saved_filters_dict = json.load(openfile)
 
-    initial_filter_level_1 = saved_filters_dict['level_1']
-    initial_filter_level_2 = saved_filters_dict['level_2']
-    initial_result_df = result_df_prep.initial_result_df_prep(initial_filter_level_1, initial_filter_level_2)
-    
-    # по умолчанию result_df - это полный список всех техмест
-    result_df = teh_mesta_full_list
-
-    # Нужно из сохраненных фильтров собрать первоначальную загрузку таблицы
-    level_1_full_value_list = teh_mesta_full_list['level_1'].unique() # полный список уникальных значений из level_1
-    if len(saved_filters_dict['level_1'])>0:  # если в json есть данные по этому уровню, то применяем. 
-      checklist_level_1_values = saved_filters_dict['level_1']
-      result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
-    else: # если сохраненных фильтров нет, то применяется полный список
-      checklist_level_1_values = []
-      result_df = result_df.loc[result_df['level_1'].isin(level_1_full_value_list)]
-
-    # допустим, обрезали по первому уровню. Если он актуален. Можно резать дальше
-    level_2_full_value_list = teh_mesta_full_list['level_2'].unique() # полный список уникальных значений из level_1
-    if len(saved_filters_dict['level_2'])>0:  # если в json есть данные по этому уровню, то применяем. 
-      checklist_level_2_values = saved_filters_dict['level_2']
-      result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1_values)]
-    else: # если сохраненных фильтров нет, то применяется полный список
-      checklist_level_2_values = []
-      result_df = result_df.loc[result_df['level_2'].isin(level_2_full_value_list)]
-
-
-    # print('длина: ', len(saved_filters_dict['level_1']))
     ################## level_1 VALUES ###################################
-    
-
-    if 'checklist_level_1' in changed_id:
-      if len(checklist_level_1) == 0:
-        checklist_level_1_values = []
-        level_1_full_value_list = teh_mesta_full_list['level_1'].unique() # полный список уникальных значений из level_1
-        result_df = result_df.loc[result_df['level_1'].isin(level_1_full_value_list)]
-        print('кол-во записей ', len(result_df))
-        # в json записываем пустой список
-        saved_filters_dict['level_1'] = []
-        print('saved_filters_dict', saved_filters_dict)
-        # записываем в json
-        with open("saved_filters.json", "w") as jsonFile:
-          json.dump(saved_filters_dict, jsonFile) 
-      else:
-        result_df = result_df.loc[result_df['level_1'].isin(checklist_level_1)]
-        checklist_level_1_values = checklist_level_1
-        # Сохраняем новые значения в json
-        saved_filters_dict['level_1'] = checklist_level_1
-        print('saved_filters_dict', saved_filters_dict)
-        # записываем в json
-        with open("saved_filters.json", "w") as jsonFile:
-          json.dump(saved_filters_dict, jsonFile)
-       
-    
- 
-
+    if checklist_level_1 == None:
+      filter_level_1 = saved_filters_dict['level_1']
+    else:
+      filter_level_1 = checklist_level_1
+      saved_filters_dict['level_1'] = checklist_level_1
+      print('saved_filters_dict', saved_filters_dict)
+      # записываем в json
+      with open("saved_filters.json", "w") as jsonFile:
+        json.dump(saved_filters_dict, jsonFile)
+    checklist_level_1_values = filter_level_1
     ################## level_2 VALUES ###################################
+    if checklist_level_2 == None:
+      filter_level_2 = saved_filters_dict['level_2']
+    else:
+      filter_level_2 = checklist_level_2
+      saved_filters_dict['level_2'] = checklist_level_2
+      print('saved_filters_dict', saved_filters_dict)
+      # записываем в json
+      with open("saved_filters.json", "w") as jsonFile:
+        json.dump(saved_filters_dict, jsonFile)
+    checklist_level_2_values = filter_level_2
 
 
-
-    if 'checklist_level_2' in changed_id:
-      if len(checklist_level_2) == 0:
-        checklist_level_2_values = []
-        level_2_full_value_list = teh_mesta_full_list['level_2'].unique() # полный список уникальных значений из level_2
-        print('level_2_full_value_list после обнуления level_2: ', level_2_full_value_list)
-        result_df = result_df.loc[result_df['level_2'].isin(level_2_full_value_list)]
-        print('кол-во записей после обнуления level_2', len(result_df))
-        # в json записываем пустой список
-        saved_filters_dict['level_2'] = []
-        print('saved_filters_dict', saved_filters_dict)
-        # записываем в json
-        with open("saved_filters.json", "w") as jsonFile:
-          json.dump(saved_filters_dict, jsonFile) 
-      else:
-        result_df = result_df.loc[result_df['level_2'].isin(checklist_level_2)]
-        checklist_level_2_values = checklist_level_2
-        # Сохраняем новые значения в json
-        saved_filters_dict['level_2'] = checklist_level_2
-        print('saved_filters_dict', saved_filters_dict)
-        # записываем в json
-        with open("saved_filters.json", "w") as jsonFile:
-          json.dump(saved_filters_dict, jsonFile)
-
-
-
-
-
+    print('filter_level_1: ', filter_level_1, 'filter_level_2: ', filter_level_2)
+    result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2)
+    print('initial_result_df_len = ', len(result_df))
+   
+    
 
 
 
@@ -298,27 +241,7 @@ def meeting_plan_fact(
     checklist_level_upper_values = []
 
 
-        
-
-    if checklist_level_2 and len(checklist_level_2)>0:
-        result_df = result_df.loc[result_df['level_2'].isin(checklist_level_2)]
-        checklist_level_2_values = checklist_level_2
-
-    if checklist_level_3 and len(checklist_level_3)>0:
-        result_df = result_df.loc[result_df['level_3'].isin(checklist_level_3)]
-        checklist_level_3_values = checklist_level_3
-
-    if checklist_level_4 and len(checklist_level_4)>0:
-        result_df = result_df.loc[result_df['level_4'].isin(checklist_level_4)]
-        checklist_level_4_values = checklist_level_4
-
-    if checklist_level_5 and len(checklist_level_5)>0:
-        result_df = result_df.loc[result_df['level_5'].isin(checklist_level_5)]
-        checklist_level_5_values = checklist_level_5
-
-    if checklist_level_upper and len(checklist_level_upper)>0:
-        result_df = result_df.loc[result_df['level_upper'].isin(checklist_level_upper)]
-        checklist_level_upper_values = checklist_level_upper
+     
 
     result_df.to_csv('data/result_df.csv')
 

@@ -11,7 +11,7 @@ def settings_tab():
                     children=[
 
                         html.Div([
-                            dbc.Button("Выгрузить шаблон", id="btn_download_template", size="sm",
+                            dbc.Button("Выгрузить шаблон фильтров", id="btn_download_template", size="sm",
                                        style={'marginBottom': '3px',
                                               'marginTop': '3px',
                                               'backgroundColor': '#232632'}, ),

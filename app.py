@@ -13,7 +13,7 @@ import io
 import json
 # import plotly.graph_objects as go
 import result_df_prep
-
+import clean_messages_raw_file
 
 # select the Bootstrap stylesheet2 and figure template2 for the theme toggle here:
 # template_theme1 = "sketchy"
@@ -362,10 +362,10 @@ def parse_contents(contents, filename):
         elif 'xlsx' in filename and "сообщения" in filename:
             # Assume that the user uploaded an excel file
             df = pd.read_excel(io.BytesIO(decoded))
-            # удаляем строки, в которых нет данных в поле СистСтатус ЗаказТОРО
-            df.dropna(subset=['СистСтатус ЗаказТОРО', ], inplace=True)
+            result_messages_df = clean_messages_raw_file.clean_messages(df)
+            
 
-            df.to_csv('data/messages.csv')
+            result_messages_df.to_csv('data/messages.csv')
     except Exception as e:
         print(e)
         return html.Div([
@@ -409,8 +409,7 @@ def parse_contents(contents, filename):
 def update_output(list_of_contents, list_of_names):
     if list_of_contents is not None:
         children = [
-            parse_contents(c, n) for c, n in
-            zip(list_of_contents, list_of_names)]
+            parse_contents(c, n) for c, n in zip(list_of_contents, list_of_names)]
         
         return children
 

@@ -141,7 +141,7 @@ def meeting_plan_fact(
     else:
       filter_level_1 = checklist_level_1
       saved_filters_dict['level_1'] = checklist_level_1
-      # print('saved_filters_dict', saved_filters_dict)
+     
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
@@ -152,7 +152,7 @@ def meeting_plan_fact(
     else:
       filter_level_2 = checklist_level_2
       saved_filters_dict['level_2'] = checklist_level_2
-      # print('saved_filters_dict', saved_filters_dict)
+    
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
@@ -164,7 +164,7 @@ def meeting_plan_fact(
     else:
       filter_level_3 = checklist_level_3
       saved_filters_dict['level_3'] = checklist_level_3
-      # print('saved_filters_dict', saved_filters_dict)
+     
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
@@ -176,7 +176,7 @@ def meeting_plan_fact(
     else:
       filter_level_4 = checklist_level_4
       saved_filters_dict['level_4'] = checklist_level_4
-      # print('saved_filters_dict', saved_filters_dict)
+     
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
@@ -188,7 +188,7 @@ def meeting_plan_fact(
     else:
       filter_level_5 = checklist_level_5
       saved_filters_dict['level_5'] = checklist_level_5
-      # print('saved_filters_dict', saved_filters_dict)
+     
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
@@ -201,16 +201,16 @@ def meeting_plan_fact(
     else:
       filter_level_upper = checklist_level_upper
       saved_filters_dict['level_upper'] = checklist_level_upper
-      # print('saved_filters_dict', saved_filters_dict)
+  
       # записываем в json
       with open("saved_filters.json", "w") as jsonFile:
         json.dump(saved_filters_dict, jsonFile)
     checklist_level_upper_values = filter_level_upper
 
     
-    print('filter_level_1: ', filter_level_1, 'filter_level_2: ', filter_level_2, 'filter_level_3: ', filter_level_3, 'filter_level_4: ', filter_level_4, 'filter_level_5: ', filter_level_5, 'filter_level_upper: ', filter_level_upper)
+    
     result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3, filter_level_4, filter_level_5, filter_level_upper)[0]
-    # print('initial_result_df_len = ', len(result_df))
+   
    
     
 
@@ -284,7 +284,7 @@ def meeting_plan_fact(
     table_df = pd.DataFrame(table_list)
     number_of_rows = len(table_df)
     number_of_rows_text = 'Количество записей: {}'.format(number_of_rows)
-    # print(table_df)
+
 
     code_table = dash_table.DataTable(
         # id='table',

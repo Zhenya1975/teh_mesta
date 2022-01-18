@@ -1,8 +1,8 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 loading_style = {
-    'position': 'absolute',
-    'align-self': 'center'
+    # 'position': 'absolute',
+    # 'align-self': 'center'
                  }
 def select_filters_tab():
     select_filters_tab_block = dcc.Tab(
@@ -31,7 +31,7 @@ def select_filters_tab():
 
             dbc.Row([
                 # колонка с фильтрами
-                dbc.Col(width=3,
+                dbc.Col(width=4,
                   children=[
                     html.P(),
                     html.Div([
@@ -70,7 +70,7 @@ def select_filters_tab():
                   ]),
                   ]
                 ),
-                dbc.Col(width=9,
+                dbc.Col(width=8,
                     children=[
                         html.P(id='number_of_rows_text'),
                         

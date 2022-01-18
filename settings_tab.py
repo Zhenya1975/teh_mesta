@@ -19,6 +19,7 @@ def settings_tab():
                         ]),
 
                         html.P("Загрузка файла"),
+                        html.P("filters_template.xlsx, equipment_list.xlsx"),
 
                         html.Div([
                             dcc.Upload(

@@ -337,12 +337,15 @@ def parse_contents(contents, filename):
     try:
         if 'csv' in filename:
             # Assume that the user uploaded a CSV file
-            df = pd.read_csv(
-                io.StringIO(decoded.decode('utf-8')))
-        elif 'xlsx' in filename:
+            df = pd.read_csv(io.StringIO(decoded.decode('utf-8')))
+        elif 'xlsx' in filename and "filters_template" in filename:
             # Assume that the user uploaded an excel file
             df = pd.read_excel(io.BytesIO(decoded))
             df.to_csv('data/selected_items.csv')
+        elif 'xlsx' in filename and "equipment_list" in filename:
+            # Assume that the user uploaded an excel file
+            df = pd.read_excel(io.BytesIO(decoded))
+            df.to_csv('data/eo_list.csv')
     except Exception as e:
         print(e)
         return html.Div([

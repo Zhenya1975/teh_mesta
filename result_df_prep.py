@@ -55,4 +55,8 @@ def initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3, filte
     result_df['level_5'].isin(level_5_filters)&
     result_df['level_upper'].isin(level_upper_filters)
   ]
-  return initial_result_df
+  eo_list = pd.read_csv('data/eo_list.csv')
+  result_df_eo = pd.merge(initial_result_df, eo_list, on='teh_mesto', how = 'left')
+  result_df_eo.to_csv('data/result_df_eo.csv')
+
+  return initial_result_df, result_df_eo

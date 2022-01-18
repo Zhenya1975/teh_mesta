@@ -9,14 +9,24 @@ def select_filters_tab():
         label='Выбор параметров техмест',
         value='tab_select_parameters',
         children=[
-            dbc.Row([
+            dbc.Row(justify="start",
+            children = [
               html.Div([
-                dbc.Button("Выгрузить Excel", id="btn-download", size="sm",
+                dbc.Button("Выгрузить список техмест xlsx", id="btn-download", size="sm",
                                     style={'marginBottom': '3px',
                                             'marginTop': '3px',
                                             'backgroundColor': '#232632'},),
                 dcc.Download(id="download-excel")
               ]),
+              html.Div([
+                dbc.Button("Выгрузить список EO xlsx", id="btn-download-eo", size="sm",
+                                    style={'marginBottom': '3px',
+                                            'marginTop': '3px',
+                                            'backgroundColor': '#232632'},),
+                dcc.Download(id="download-excel-eo")
+              ])
+
+
             ]),
 
             dbc.Row([

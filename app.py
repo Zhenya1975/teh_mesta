@@ -209,8 +209,8 @@ def meeting_plan_fact(
 
     
     print('filter_level_1: ', filter_level_1, 'filter_level_2: ', filter_level_2, 'filter_level_3: ', filter_level_3, 'filter_level_4: ', filter_level_4, 'filter_level_5: ', filter_level_5, 'filter_level_upper: ', filter_level_upper)
-    result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3, filter_level_4, filter_level_5, filter_level_upper)
-    print('initial_result_df_len = ', len(result_df))
+    result_df = result_df_prep.initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3, filter_level_4, filter_level_5, filter_level_upper)[0]
+    # print('initial_result_df_len = ', len(result_df))
    
     
 
@@ -274,9 +274,9 @@ def meeting_plan_fact(
 
     for index,row in result_df.iterrows():
         temp_dict = {}
-        teh_mesto_code = row['Техническое место']
+        teh_mesto_code = row['teh_mesto']
 
-        temp_dict['Код технического места'] = teh_mesto_code
+        temp_dict['teh_mesto'] = teh_mesto_code
         temp_dict['Наименование технического места'] = row['Название технического места']
         temp_dict['level_upper'] = row['level_upper']
 
@@ -312,8 +312,21 @@ def meeting_plan_fact(
 def func(n_clicks):
     if n_clicks:
         df = pd.read_csv('data/result_df.csv', dtype=str)
-        df = df.loc[:, ['Техническое место', 'Название технического места',	'level_upper']]
+        df = df.loc[:, ['teh_mesto', 'Название технического места',	'level_upper']]
         return dcc.send_data_frame(df.to_excel, "тех_места.xlsx", index=False, sheet_name="тех_места")
+
+
+############# выгрузка списка EO, связанных с техместами #################
+@app.callback(
+    Output("download-excel-eo", "data"),
+    Input("btn-download-eo", "n_clicks"),
+    prevent_initial_call=True,)
+def funct(n_clicks_eo):
+    if n_clicks_eo:
+        df = pd.read_csv('data/result_df_eo.csv', dtype=str)
+        df = df.loc[:, ['teh_mesto', 'Название технического места', 'Ед. оборудов.', 'Описание','ГрупПлановик','МВЗ', 'ДатаВводЭкспл']]
+        return dcc.send_data_frame(df.to_excel, "список_ео.xlsx", index=False, sheet_name="список_ео")
+
 
 
 ########## Настройки################

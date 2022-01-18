@@ -86,7 +86,7 @@ app.layout = dbc.Container(
         ]
     ),
     className="m-4 dbc",
-    fluid=True,
+    # fluid=True,
 )
 
 

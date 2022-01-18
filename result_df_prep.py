@@ -59,4 +59,8 @@ def initial_result_df_prep(filter_level_1, filter_level_2, filter_level_3, filte
   result_df_eo = pd.merge(initial_result_df, eo_list, on='teh_mesto', how = 'left')
   result_df_eo.to_csv('data/result_df_eo.csv')
 
+  # определили result_df  - здесь же надо определять состояние значений в фильтрах
+  # какой фильтр, какое значение, и какое состояние True или False
+
+
   return initial_result_df, result_df_eo

@@ -335,7 +335,7 @@ def funct(n_clicks_eo):
     Input("btn_download_template", "n_clicks"),
     prevent_initial_call=True,
 )
-def func(n_clicks):
+def func_1(n_clicks):
     if n_clicks:
         df = pd.read_csv('data/selected_items.csv', dtype=str)
         df = df.astype({'level_no': int})
@@ -359,6 +359,13 @@ def parse_contents(contents, filename):
             # Assume that the user uploaded an excel file
             df = pd.read_excel(io.BytesIO(decoded))
             df.to_csv('data/eo_list.csv')
+        elif 'xlsx' in filename and "сообщения" in filename:
+            # Assume that the user uploaded an excel file
+            df = pd.read_excel(io.BytesIO(decoded))
+            # удаляем строки, в которых нет данных в поле СистСтатус ЗаказТОРО
+            df.dropna(subset=['СистСтатус ЗаказТОРО', ], inplace=True)
+
+            df.to_csv('data/messages.csv')
     except Exception as e:
         print(e)
         return html.Div([

@@ -312,7 +312,7 @@ def meeting_plan_fact(
 def func(n_clicks):
     if n_clicks:
         df = pd.read_csv('data/result_df.csv', dtype=str)
-        df = df.loc[:, ['Техническое место', 'Название технического места',	'Вышестоящее ТехМесто']]
+        df = df.loc[:, ['Техническое место', 'Название технического места',	'level_upper']]
         return dcc.send_data_frame(df.to_excel, "тех_места.xlsx", index=False, sheet_name="тех_места")
 
 

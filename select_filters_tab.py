@@ -1,8 +1,8 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
 loading_style = {
-    # 'position': 'absolute',
-                 # 'align-self': 'center'
+    'position': 'absolute',
+    'align-self': 'center'
                  }
 def select_filters_tab():
     select_filters_tab_block = dcc.Tab(

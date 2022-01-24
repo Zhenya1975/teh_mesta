@@ -1,5 +1,6 @@
 from dash import dcc, html
 import dash_bootstrap_components as dbc
+import datetime
 
 def settings_tab():
     settings_tab_block = dcc.Tab(
@@ -10,7 +11,17 @@ def settings_tab():
                 dbc.Col(
                     children=[
 
+                        
                         html.Div([
+                            html.P(),
+                            dcc.DatePickerSingle(
+                              id='my-date-picker-single',
+                              # min_date_allowed=date(1995, 8, 5),
+                              # max_date_allowed=date(2017, 9, 19),
+                              initial_visible_month=datetime.datetime.now().date(),
+                              date=datetime.datetime.now().date()
+                          ),
+                            html.P(),
                             dbc.Button("Выгрузить шаблон фильтров", id="btn_download_template", size="sm",
                                        style={'marginBottom': '3px',
                                               'marginTop': '3px',

@@ -7,6 +7,7 @@ from dash_bootstrap_templates import load_figure_template
 import functions
 import select_filters_tab
 import settings_tab
+import orders_tab
 from dash import dash_table
 import base64
 import io
@@ -57,7 +58,7 @@ app.layout = dbc.Container(
         [
             dbc.Col(
                 [
-                    html.H4("ТЕХНИЧЕСКИЕ МЕСТА"),
+                    html.H4("ТЕХНИЧЕСКИЕ МЕСТА, ЗАКАЗЫ"),
                     ThemeSwitchAIO(aio_id="theme", themes=[url_theme1, url_theme2], ),
 
                     html.Div([
@@ -73,6 +74,7 @@ app.layout = dbc.Container(
                             # className='custom-tabs-container',
                             children=[
                                 select_filters_tab.select_filters_tab(),
+                                orders_tab.orders_tab(),
                                 settings_tab.settings_tab()
 
                                 # tab2(),
@@ -118,7 +120,7 @@ app.layout = dbc.Container(
         Input('checklist_level_upper', 'value'),
     ],
 )
-def meeting_plan_fact(
+def teh_mesta(
         checklist_level_1,
         checklist_level_2,
         checklist_level_3,
@@ -363,9 +365,12 @@ def parse_contents(contents, filename):
             # Assume that the user uploaded an excel file
             df = pd.read_excel(io.BytesIO(decoded))
             result_messages_df = clean_messages_raw_file.clean_messages(df)
-            
 
-            result_messages_df.to_csv('data/messages.csv')
+        elif 'xlsx' in filename and "orders" in filename:
+            # Assume that the user uploaded an excel file
+            df = pd.read_excel(io.BytesIO(decoded), converters= {'БазисСрокНачала': pd.to_datetime,'БазисСрокКонца': pd.to_datetime,})
+            df.to_csv('data/orders.csv')
+            
     except Exception as e:
         print(e)
         return html.Div([
@@ -412,6 +417,77 @@ def update_output(list_of_contents, list_of_names):
             parse_contents(c, n) for c, n in zip(list_of_contents, list_of_names)]
         
         return children
+
+
+@app.callback([
+                Output('orders_table_orders_tab', 'children'),
+                Output("checklist_level_upper_orders_tab", "value"),
+                Output("checklist_level_upper_orders_tab", "options"),
+              ],
+              [
+              Input('checklist_level_upper_orders_tab', 'value'),
+              ])
+def orders_tab(checklist_level_upper):
+  with open('saved_filters_orders_tab.json', 'r') as openfile:
+      # Reading from json file
+      saved_filters_dict = json.load(openfile)
+  
+  
+  ################## level_upper VALUES ###################################
+  if checklist_level_upper == None:
+    filter_level_upper = saved_filters_dict['level_upper']
+  else:
+    filter_level_upper = checklist_level_upper
+    saved_filters_dict['level_upper'] = checklist_level_upper
+
+    # записываем в json
+    with open("saved_filters_orders_tab.json", "w") as jsonFile:
+      json.dump(saved_filters_dict, jsonFile)
+  checklist_level_upper_values = filter_level_upper
+  
+  selected_items_df = pd.read_csv('data/selected_items.csv', dtype=str)
+  selected_items_df = selected_items_df.astype({"level_no": int})
+
+  # Список чек-боксов Level_upper
+  level_upper_df = selected_items_df.loc[selected_items_df['level_no'] == 0]
+  checklist_level_upper_options = []
+  if len(level_upper_df) > 0:
+    checklist_level_upper_options = functions.level_checklist_data(level_upper_df)[0]
+
+  orders_df = pd.read_csv('data/orders_df_selected_by_dates.csv')
+
+  orders_result = []
+  for index, row in orders_df.iterrows():
+    temp_dict = {}
+    order_id = row['Заказ']
+    order_type = row['Вид заказа']
+    order_periodic_type = row['Вид работы ТОРО']
+    temp_dict['Заказ'] = order_id
+    temp_dict['Вид заказа'] = order_type
+    temp_dict['Вид работы ТОРО'] = order_periodic_type
+    orders_result.append(temp_dict)
+  
+  orders_table_df = pd.DataFrame(orders_result)
+  number_of_rows_orders = len(orders_table_df)
+
+  orders_table = dash_table.DataTable(
+        # id='table',
+        columns=[{"name": i, "id": i} for i in orders_table_df.columns],
+        data=orders_table_df.to_dict('records'),
+        filter_action='native',
+        style_header={
+            # 'backgroundColor': 'white',
+            'fontWeight': 'bold'
+        },
+        style_data={
+            'whiteSpace': 'normal',
+            'height': 'auto',
+        },
+        style_cell={'textAlign': 'left'},
+    )
+
+  return orders_table, checklist_level_upper_values, checklist_level_upper_options
+
 
 if __name__ == "__main__":
     # app.run_server(debug=True)
